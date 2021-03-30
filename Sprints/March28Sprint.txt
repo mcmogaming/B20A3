@@ -1,0 +1,8 @@
+Pedram:
+
+Efkan:
+
+Mohammad:
+    - Getting login working on database
+
+Next Meeting: March 29
