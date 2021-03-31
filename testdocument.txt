@@ -1,1 +1,0 @@
-this is a document made to check if my version control is working properly
