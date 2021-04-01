@@ -1,0 +1,95 @@
+CREATE TABLE "assignments" (
+  "courseid" text NOT NULL,
+  "assignment" text NOT NULL,
+  "due_date" date NOT NULL,
+  "total_marks" float NOT NULL,
+  "course_percentage" float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE "courses" (
+  "courseid" text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO "courses" ("courseid") VALUES
+('CSCA08'),
+('CSCA48'),
+('CSCB07'),
+('CSCB20');
+
+CREATE TABLE "grades" (
+  "userid" int(11) NOT NULL,
+  "courseid" text NOT NULL,
+  "assignment" text NOT NULL,
+  "grade" float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE "lectures" (
+  "courseid" text NOT NULL,
+  "lec_order" text NOT NULL,
+  "lec_title" text NOT NULL,
+  "html" text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE "login_credentials" (
+  "userid" int(11) NOT NULL,
+  "username" text NOT NULL,
+  "hashedpwd" text NOT NULL,
+  "privilege" int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO "login_credentials" ("userid", "username", "hashedpwd", "privilege") VALUES
+(1, 'mohammad', '0a1716d0fa60a8577ae6e5528b19a2ac', 1),
+(2, 'efkan', 'b35cf782472552eec8913cfec72f0fc6', 2),
+(3, 'pedram', '5ee910e37ec173edc3e95d5f3f4bd304', 3);
+
+CREATE TABLE "profile" (
+  "userid" int(11) NOT NULL,
+  "courses" text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE "submissions" (
+  "courseid" text NOT NULL,
+  "userid" int(11) NOT NULL,
+  "assignment_name" text NOT NULL,
+  "sub_date" date NOT NULL DEFAULT current_timestamp(),
+  "sub_path" text NOT NULL,
+  "marks" float NOT NULL,
+  "comments" text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE "zoomlinks" (
+  "courseid" text NOT NULL,
+  "date" date NOT NULL,
+  "repeat_time" tinyint(1) NOT NULL DEFAULT 1,
+  "link" text NOT NULL,
+  "passcode" text NOT NULL DEFAULT '',
+  "title" text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE "courses"
+  ADD PRIMARY KEY ("courseid"(16));
+  
+ALTER TABLE "grades"
+  ADD PRIMARY KEY ("userid");
+
+ALTER TABLE "lectures"
+  ADD PRIMARY KEY ("courseid"(16));
+
+ALTER TABLE "login_credentials"
+  ADD PRIMARY KEY ("userid");
+  
+ALTER TABLE "profile"
+  ADD PRIMARY KEY ("userid");
+
+ALTER TABLE "submissions"
+  ADD PRIMARY KEY ("courseid"(16),"userid","assignment_name"(256));
+
+ALTER TABLE "zoomlinks"
+  ADD PRIMARY KEY ("courseid"(16));
+
+ALTER TABLE "login_credentials"
+  MODIFY "userid" int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;

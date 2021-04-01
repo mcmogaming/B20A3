@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(214, 243, 248);
+}
+
+.login_box {
+    margin-right: 40vw;
+    margin-left: 40vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 550px;
+    width: 384px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 10px black;
+}
+
+.login_box_logo {
+    margin-left: 67px;
+    margin-right: 67px;
+    width: 250px;
+    height: 150px;
+    background-image: url("CMSlogo.png");
+}
+
+.login_form {
+    height: 172px;
+}
+
+.login_form input {
+    border-radius: 6px;
+    border-style: inset;
+    border-width: 3px;
+    border-color: rgb(0, 162, 255);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 6%;
+    margin-bottom: 7%;
+    width: 80%;
+    font-size: 18px;
+}
+
+.login_button {
+    padding-top: 15%;
+}
+
+.login_button button {
+    border-width: 0px;
+    border-radius: 6px;
+    background-color: green;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    height: 55px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}

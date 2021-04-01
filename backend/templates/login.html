@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="login.css">
+<meta charset="utf-8">
+<title>CMS Login</title>
+</head>
+<body>
+<div class="login_box">
+    <div class="login_box_logo"></div>
+    <div class="login_form">
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <input id="uname" type="text" placeholder="Username" name="user_name" required>
+            <input id="pass" type="password" placeholder="Password" name="user_pass" required>
+            <div class="login_button"><button type="submit">Login</button></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
