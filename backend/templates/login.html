@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="login.css">
-<meta charset="utf-8">
-<title>CMS Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+    <meta charset="utf-8">
+    <title>CMS Login</title>
 </head>
+
 <body>
-<div class="login_box">
-    <div class="login_box_logo"></div>
-    <div class="login_form">
-        <form action="{{ url_for('handle_data') }}" method="post">
-            <input id="uname" type="text" placeholder="Username" name="user_name" required>
-            <input id="pass" type="password" placeholder="Password" name="user_pass" required>
-            <div class="login_button"><button type="submit">Login</button></div>
-        </form>
+    <div class="login_box">
+        <div class="login_box_logo"></div>
+        <div class="login_form">
+            <form action="{{url_for('login')}}" method="post">
+                <input id="uname" type="text" placeholder="Username" name="username" required>
+                <input id="pass" type="password" placeholder="Password" name="password" required>
+                <div class="login_button"><button type="submit">Login</button></div>
+            </form>
+            {% if login_failed%}
+            <div class="login_error_box">
+                Incorrect Username or Password
+            </div>
+            {% endif %}
+        </div>
     </div>
-</div>
 </body>
+
 </html>

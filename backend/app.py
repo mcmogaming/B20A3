@@ -39,7 +39,7 @@ def root():
     if session_id in SESSIONS.keys():
         return "You're Logged in" + SESSIONS[session_id]
     else:
-        return redirect(url_for('login'))
+        return show_login_page()
 
 #Login Page
 @app.route('/login', methods=['GET','POST'])
@@ -53,8 +53,8 @@ def login():
 def do_the_login(username,password):
     if check_login(username,password):
         return "Login Success"
-    return "Login Failed"
+    return show_login_page(login_failed = True)
 
-def show_login_page():
+def show_login_page(login_failed=False):
     #return "Login Page"
-    return redirect(url_for('static', filename='login.html'))
+    return render_template('login.html', login_failed=login_failed)

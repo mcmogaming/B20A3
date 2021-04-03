@@ -19,7 +19,7 @@ body {
     margin-right: 67px;
     width: 250px;
     height: 150px;
-    background-image: url("CMSlogo.png");
+    background-image: url("/static/images/CMSlogo.png");
 }
 
 .login_form {
@@ -53,4 +53,14 @@ body {
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
+}
+
+.login_error_box {
+    background-color: #d9534f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2%;
+    margin-top: 5%;
+    padding: 2%;
+    border-radius: 20px;
+    box-shadow: 2px 5px #000000;
 }
