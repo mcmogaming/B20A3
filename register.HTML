@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="register.css">
+<meta charset="utf-8">
+<title>CMS Login</title>
+</head>
+<body>
+<div class="content_box">
+    <div class="title_bar">Create an account</div>
+    <div class="register_form">
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <input id="fname" type="text" placeholder="Full Name" name="full_name" required><br />
+            <input id="uname" type="text" placeholder="Username" name="user_name" required><br />
+            <input id="pass" type="password" placeholder="Password" name="user_pass" required><br />
+            <input id="rptpass" type="password" placeholder="Repeat Password" name="rpt_pass" required><br />
+            <input id="sdtnum" type="number" placeholder="Student Number" name="sdt_num" required><br />
+            <div class="submit_button"><button type="submit">Register</button></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
