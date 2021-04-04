@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="feedback.css">
+<meta charset="utf-8">
+<title>CMS - Leave Feedback</title>
+</head>
+<body>
+<div class="content_box">
+    <p class="feedback_title">Anonymous Feedback Form</p>
+    <div class="feedback_form">
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <label for="q1">What do you like about the instructor teaching?</label><br>
+            <input id="q1" type="text" placeholder="Please Type Here..." name="question1"><br>
+            <label for="q2">What do you recommend the instructor to do to improve their teaching?</label><br>
+            <input id="q2" type="text" placeholder="Please Type Here..." name="question2"><br>
+            <label for="q3">What do you like about the labs?</label><br>
+            <input id="q3" type="text" placeholder="Please Type Here..." name="question3"><br>
+            <label for="q4">What do you recommend the lab instructors to do to improve their lab teaching?</label><br>
+            <input id="q4" type="text" placeholder="Please Type Here..." name="question4"><br>
+            <div class="feedback_button"><button type="submit">Submit Feedback</button></div>
+        </form>
+    </div>
+</div>
+</body> 
+</html>
