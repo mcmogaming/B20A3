@@ -10,12 +10,30 @@
     <div class="title_bar">Create an account</div>
     <div class="register_form">
         <form action="{{ url_for('handle_data') }}" method="post">
-            <input id="fname" type="text" placeholder="Full Name" name="full_name" required><br />
-            <input id="uname" type="text" placeholder="Username" name="user_name" required><br />
-            <input id="pass" type="password" placeholder="Password" name="user_pass" required><br />
-            <input id="rptpass" type="password" placeholder="Repeat Password" name="rpt_pass" required><br />
-            <input id="sdtnum" type="number" placeholder="Student Number" name="sdt_num" required><br />
-            <div class="submit_button"><button type="submit">Register</button></div>
+            <div class="form_input_boxes">
+                <input id="fname" type="text" placeholder="Full Name" name="full_name" required><br />
+                <input id="uname" type="text" placeholder="Username" name="user_name" required><br />
+                <input id="pass" type="password" placeholder="Password" name="user_pass" required><br />
+                <input id="rptpass" type="password" placeholder="Repeat Password" name="rpt_pass" required><br />
+                <input id="u_num" type="number" placeholder="Student/Instructor ID Number" name="user_num" required><br />
+            </div>
+            <div class="user_type_radio">
+                <p>Type of user:</p>
+                <hr>
+                <ul>
+                    <li>
+                        <input type="radio" id="inst" name="user_type" value="0">
+                        <label for="inst">Instructor</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="stdnt" name="user_type" value="1">
+                        <label for="stdnt">Student</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="submit_button">
+                <button type="submit">Register</button>
+            </div>
         </form>
     </div>
 </div>

@@ -7,8 +7,8 @@ body {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 10vh;
-    height: 80vh;
+    margin-top: 5vh;
+    height: 92vh;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 5px 10px black;
@@ -25,7 +25,7 @@ body {
     color: black;
 }
 
-.register_form input
+.form_input_boxes input
 {
     border-radius: 6px;
     border-style: inset;
@@ -33,16 +33,79 @@ body {
     border-color: rgb(0, 162, 255);
     margin-left: 30%;
     margin-right: 30%;
-    margin-bottom: 4%;
+    margin-bottom: 30px;
     width: 40%;
     font-size: 18px;
 }
 
+.user_type_radio
+{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user_type_radio p
+{
+    width:20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.user_type_radio hr
+{
+    width: 16%;
+    margin-left: 42%;
+    margin-right: 42%;
+    margin-bottom: 30px;
+    border-top: 2.6px solid rgb(64, 136, 199);
+    border-radius: 90px;
+}
+
+.user_type_radio ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+.user_type_radio ul li
+{
+    margin-bottom: 15px;
+}
+
+.user_type_radio ul li input[type=radio]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.user_type_radio ul li:hover
+{
+    color:blue;
+}
+
+.user_type_radio ul li label
+{
+    transition: all 0.2s;
+}
+
+input[type=radio]:checked ~ label{
+    color: blue;
+    font-size: 30px;
+}
+
 .register_form button
 {
+    min-width: 95px;
     font-size: 20px;
     margin-left: 45%;
     margin-right: 45%;
+    margin-top: 100px;
     width: 10%;
     height: 40px;
     background-color: rgb(4, 175, 118);
