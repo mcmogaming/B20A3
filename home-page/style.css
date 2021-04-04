@@ -1,0 +1,242 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+p{
+    font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3{
+font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: Helvetica;
+}
+
+header {
+    font-size: 20px;
+    border-bottom:1px solid rgb(0,0,0);
+    padding-bottom:1px;
+    position: sticky;
+    top: 0px;
+    background: white;
+
+}
+
+
+nav{
+    position: relative;
+    min-height:10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.uoftlogo {
+    padding-left:20px;
+    padding-right:10px;
+}
+
+nav h1{
+    Color: rgb(82, 76, 76);
+    padding-left:40px;
+    font-size: 40px;
+    flex :1;
+}
+
+nav ul{
+
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size:25px;
+    flex :1;
+}
+
+nav a{
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover{
+    font-style: italic;
+    
+}
+
+#sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background:#082c5c;
+    left: -300px;
+    transition: 0.4s ease;
+    
+
+}
+#sidebar.active{
+    left: 0;
+}
+
+.dashb{
+    font-size:25px;
+    color: white;
+    text-align: center;
+    line-height: 65px;
+    background: #00060e5b;
+    user-select: none;
+}
+.menu-items ul li{
+    list-style: none;
+    color: #fff;
+    padding: 20px ;
+    display: block;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
+    
+}
+
+.menu-items ul a{
+    height: 100%;
+    width:100%;
+    line-height: 45px;
+    font-size: 22px;
+    color: white;
+    padding-left: 20px;
+    transition: 0.4s;
+    text-decoration: none;
+
+}
+
+.menu-items ul li:hover a{
+    padding-left: 40px;
+}
+
+#sidebar .toggle-btn{
+    position: absolute;
+    top:30px;
+    left: 330px;
+}
+
+.toggle-btn span{
+    width: 45px;
+    height:4px;
+    background: #082c5c;
+    display: block;
+    margin-top: 4px;
+}
+
+
+section{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section h2{
+    font-size: 3rem;
+    color : black;
+}
+
+.bubble1{
+    background: #fff;
+    position: absolute;
+    z-index: -2;
+    transition: all 0.5s  ;  
+    transform: scale(1.2);
+}
+.homecontent{
+    margin-top:50px;
+    padding-top: 20px;
+    color: white;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .homecontent div{
+    padding: 20px;
+    margin:30px;
+    border-radius: 10px;
+  }
+
+  .coursedescription{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+   
+  }
+  .instructors{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .TimeTable{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .eventswidget{
+    grid-column: 2/3; 
+    grid-row: 2/4; 
+    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .eventswidget h3{
+    text-align: center;
+  }
+  .eventswidget hr{
+    width:60%;
+  }
+  .eventswidget p span{
+    font-weight:lighter;
+    font-size: 85%;
+  }
+  
+
+  .homecontent a{
+    color: rgb(247, 241, 186);
+    text-decoration: none;
+  }
+  .homecontent a:hover{
+    color: rgb(243, 218, 149);
+    text-decoration: underline;
+  }
+
+  .feedback{
+    grid-column: 2/3; 
+    grid-row: 1/3; 
+    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .feedback h3{
+    text-align: center;
+  }
+  .feedback hr{
+    width:60%;
+  }
+  .feedback p span{
+    font-weight:lighter;
+    font-size: 85%;
+  }
