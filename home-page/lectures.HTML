@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CMS Performance</title>
+</head>
+<body>
+   <header>
+        <nav>
+            <img class="uoftlogo" src="Pics\CMSlogo0.png" alt="Logo">
+            <h1>Content</h1>
+          
+            <ul> 
+                <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
+                <li><a data-page="instructors" href="#"><b>Instructors</b></a> </li>
+                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>   
+                <div class="bubble1"></div>  
+            </ul> 
+        </nav>
+   </header>
+   <div id="sidebar">
+       <div class="toggle-btn" onclick="show()">
+           <span></span>
+           <span></span>
+           <span></span>
+       </div>
+       <div class="menu-items">
+           <div class="dashb">Dashboard</div>
+            <ul>
+                <li><a href="index.HTML">Home</a></li>
+                <li><a href="calendar.HTML">Calendar</a></li>
+                <li><a href="https://piazza.com/class/kk052lckppx73x#">Discussion Board</a></li>
+                <li><a href="lectures.HTML">Course Content</a></li>
+                <li><a href="grades.HTML">Grades</a></li>
+                <li><a href="assignments.HTML">Assignments</a></li>
+                <li><a href="tests.HTML">Tests</a></li>
+                <li><a href="links.HTML">Links</a></li>
+            </ul>
+       </div>
+   </div>
+   <div class="mainwrap">
+       <section class="lecturecontent">
+            <div class="week">
+                <h4 class="item1">Week 1: Intro, Worst Case Complexity</h4>
+                <a href="lecture0.HTML" class="btn">Lectures content</a>
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 2: Balanced Trees (AVL)</h4>
+                <a href="lecture1.HTML" class="btn">Lectures content </a>
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 3: AVL Trees height, and Augment. Interval Trees</h4>
+                <a href="lecture2.HTML" class="btn">Lectures content </a>
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 4: Finish Interval Trees<br>, Heaps and Graph Search Algorithms</h4>
+                <a href="lecture3.HTML" class="btn">Lectures content </a>
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 5: Graph Searches and Minimum Spanning Trees</h4>
+                <a href="lecture4.HTML" class="btn">Lectures content</a> 
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 6: Proof of Prims, Dijkstra's Algorithm,<br>Strongly Connected Components</h4>
+                <a href="lecture5.HTML" class="btn">Lectures content </a>
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 7: Amortized Analysis</h4>
+                <a href="lecture6.HTML" class="btn">Lectures content </a>
+                
+            </div>
+            <div class="week">
+                <h4 class="item1">Week 8: Disjoint Sets, Fibonacci Heaps</h4>
+                <a href="lecture7.HTML" class="btn">Lectures content</a> 
+            </div>
+       </section>
+       <section class="tutorialcontent">
+            <div class="week">
+                <h4 id="w1" class="tuttitle">Week 1: No Tutorial</h4>
+            </div>
+            <div class="week">
+                <h4 id="w2" class="tuttitle">Week 2: Worst Case Complexity </h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/w2.pdf" class="btn">Handout</a>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/w2_soln.pdf" class="btn">Solution</a>
+            </div>
+            <div class="week">
+                <h4 id="w3" class="tuttitle">Week 3: AVL Trees Insert/Delete</h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial-03.pdf" class="btn">Handout </a>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial-03_soln.pdf" class="btn">Solution</a>
+            </div>
+            <div class="week">
+                <h4 id="w4" class="tuttitle">Week 4: Practice Term test format </h4>
+            </div>
+            <div class="week">
+                <h4 id="w5" class="tuttitle">Week 5: Graph Search Algorithms </h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/lectures/w5/graph_reading.pdf" class="btn">Graph Definitions</a>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/BFS_tut5.pdf" class="btn">BFS handout</a>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial-05.pdf" class="btn">BFS Practice</a>
+            </div>
+            <div class="week">
+                <h4 id="w6" class="tuttitle">Week 6: MSTs and Prims Algorithm </h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial-06.pdf" class="btn">Handout </a>
+            </div>
+            <div class="week">
+                <h4 id="w7" class="tuttitle">Week 7: Dijkstra</h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial7.pdf" class="btn">Handout</a>
+            </div>
+            <div class="week">
+                <h4 id="w8" class="tuttitle">Week 8: Amortized Analysis - Binary Counter</h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial-08_2021.pdf" class="btn">Handout</a>
+            </div>
+            <div class="week">
+                <h4 id="w9" class="tuttitle">Week 9: Probability</h4>
+                <a href="https://mathlab.utsc.utoronto.ca/bretscher/b63/tutorials/tutorial9.pdf" class="btn">Handout</a>
+            </div>
+       </section>
+   </div>
+    
+
+
+   
+</body>
+<script src="main.js"></script>    
+</html>
+
+
+  

@@ -1,0 +1,535 @@
+
+/*======index.html css=====*/
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+p{
+    font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3{
+font-family: 'Segoe UI', 'San Francisco', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: Helvetica;
+    
+}
+
+header {
+    font-size: 20px;
+    border-bottom:1px solid rgb(0,0,0);
+    padding-bottom:1px;
+    position: sticky;
+    top: 0px;
+    background: white;
+
+}
+
+
+nav{
+    position: relative;
+    min-height:10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.uoftlogo {
+    padding-left:20px;
+    padding-right:10px;
+}
+
+nav h1{
+    Color: rgb(82, 76, 76);
+    padding-left:40px;
+    font-size: 40px;
+    flex :1;
+}
+
+nav ul{
+
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size:25px;
+    flex :1;
+}
+
+nav a{
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover{
+    font-style: italic;
+    
+}
+
+#sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background:#082c5c;
+    left: -300px;
+    transition: 0.4s ease;
+    
+
+}
+#sidebar.active{
+    left: 0;
+}
+
+.dashb{
+    font-size:25px;
+    color: white;
+    text-align: center;
+    line-height: 65px;
+    background: #00060e5b;
+    user-select: none;
+}
+.menu-items ul li{
+    list-style: none;
+    color: #fff;
+    padding: 20px ;
+    display: block;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
+    
+}
+
+.menu-items ul a{
+    height: 100%;
+    width:100%;
+    line-height: 45px;
+    font-size: 22px;
+    color: white;
+    padding-left: 20px;
+    transition: 0.4s;
+    text-decoration: none;
+
+}
+
+.menu-items ul li:hover a{
+    padding-left: 40px;
+}
+
+#sidebar .toggle-btn{
+    position: absolute;
+    top:30px;
+    left: 330px;
+}
+
+.toggle-btn span{
+    width: 45px;
+    height:4px;
+    background: #082c5c;
+    display: block;
+    margin-top: 4px;
+}
+
+
+section{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section h2{
+    font-size: 3rem;
+    color : black;
+}
+
+.bubble1{
+    background: #fff;
+    position: absolute;
+    z-index: -2;
+    transition: all 0.5s  ;  
+    transform: scale(1.2);
+}
+.homecontent{
+    margin-top:50px;
+    padding-top: 20px;
+    color: white;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .homecontent div{
+    padding: 20px;
+    margin:30px;
+    border-radius: 10px;
+  }
+
+  .coursedescription{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+   
+  }
+  .instructors{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .TimeTable{
+    grid-column: 1/2;
+    
+    background-color: #292727;
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .eventswidget{
+    grid-column: 2/3; 
+    grid-row: 2/4; 
+    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .eventswidget h3{
+    text-align: center;
+  }
+  .eventswidget hr{
+    width:60%;
+  }
+  .eventswidget p span{
+    font-weight:lighter;
+    font-size: 85%;
+  }
+  
+
+  .homecontent a{
+    color: rgb(247, 241, 186);
+    text-decoration: none;
+  }
+  .homecontent a:hover{
+    color: rgb(243, 218, 149);
+    text-decoration: underline;
+  }
+
+  .feedback{
+    grid-column: 2/3; 
+    grid-row: 1/3; 
+    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    align-self: flex-start;
+    border: 2px #3b3939 solid;
+    
+  }
+  .feedback h3{
+    text-align: center;
+  }
+  .feedback hr{
+    width:60%;
+  }
+  .feedback p span{
+    font-weight:lighter;
+    font-size: 85%;
+  }
+
+
+/*======calendar.html css=====*/
+
+  .calendar-content{
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 5% 20% auto 20% 5%;
+    place-items: center;
+  }
+
+  .box1-c{
+    grid-column-start: 2;
+    grid-column-end:4;
+    padding-top: 1.5%;
+    padding-left: 2%;
+   
+  }
+  
+  .calendar{
+    margin-top: 2%;
+    height: 650px;
+    width: 650px;
+    box-shadow: 10px 10px 10px black;
+  }
+  .calendar-content p a:visited{
+    color:rgb(247, 250, 200);
+  }
+  .calendar-content p a:link{
+    color:rgb(14, 14, 13);
+  }
+  .calendar-content p a:hover{
+    color:rgb(240, 187, 109);
+    font-style: italic;
+    font-weight: lighter;
+  }
+  
+
+
+.officehour_box {
+    margin-right: 40vw;
+    margin-left: 40vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 550px;
+    width: 384px;
+    background: rgb(214, 243, 248);
+    border-radius: 20px;
+    box-shadow: 5px 10px black;
+}
+
+.bookimg img {
+    margin-top:20px;
+    margin-left: 110px;
+    margin-right: 67px;
+    width: 50%;
+    height: 50%;
+    
+}
+
+.officehour_form {
+    height: 172px;
+}
+.officehour_form label{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.officehour_form input ,select{
+    border-radius: 6px;
+    border-style: inset;
+    border-width: 3px;
+    border-color: rgb(0, 162, 255);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 4%;
+    width: 80%;
+    font-size: 14px;
+}
+.officehour_form textarea{
+  border-radius: 6px;
+    border-style: inset;
+    border-width: 3px;
+    border-color: rgb(0, 162, 255);
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 14px;
+    width: 80%;
+    height: 60px;
+    resize:none;
+}
+.booking_button {
+    margin-top: 2%;
+}
+
+.booking_button button {
+    border-width: 0px;
+    border-radius: 6px;
+    background-color: green;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    height: 55px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    transition: all 0.2s;
+}
+
+.booking_button button:hover
+{
+    background-color: rgb(56, 100, 11);
+    font-size: 21px;
+}
+
+.booking_error_box {
+    background-color: rgb(211, 42, 42);
+    margin-right: 40vw;
+    margin-left: 40vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 550px;
+    width: 384px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 10px black;
+}
+
+/*======assignments.html css=====*/
+
+.assignments{
+  margin-top:5%;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-between;
+}
+.boxass{
+  background-color:rgb(138, 253, 253);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 2px #3b3939 solid;
+  height: 200px;
+  width:50%;
+  border-style:round; 
+  box-shadow: 10px 10px black;
+}
+
+.assignments-line1{
+  margin-left: 10%;
+  border-top: 4px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  width: 80%;
+}
+.assignments-header{
+  text-align: center;
+  padding-top: 2%;
+}
+.assignments-content{
+  padding-left: 3%;
+  padding-top: 1%;
+  padding-bottom: 2%;
+}
+.assignments-content p{
+  text-align: center;
+}
+.assignments-content p a:visited{
+  color:rgb(199, 67, 67);
+}
+.assignments-content p a:link{
+  color:rgb(199, 67, 67);
+}
+.assignments-content p a:hover{
+  color:rgb(199, 67, 67);
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.assignments_button{
+  margin-top: 20px;
+  height:50%;
+}
+.assignments_button button {
+  border-width: 0px;
+  border-radius: 6px;
+  background-color: green;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  height: 40%;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  transition: all 0.2s;
+}
+
+.assignments_button button:hover
+{
+    background-color: rgb(56, 100, 11);
+    font-size: 18px;
+}
+
+/*======links.HTML css=====*/
+.flex-wrapper{
+  display: flex;
+  min-height: 68.5vh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 120px;
+}
+.content0{
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+}
+
+.links-line1{
+  margin-left: 43%;
+  border-top: 4px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  width: 220px;
+  
+}
+.links-header{
+  text-align: center;
+}
+.links-content{
+  padding-left: 3%;
+  padding-top: 3%;
+}
+.links-content p a:visited{
+  color:rgb(251, 58, 58);
+}
+.links-content p a:link{
+  color:rgb(251, 58, 58);
+}
+.links-content p a:hover{
+  color:rgb(251, 58, 58);
+  font-style: italic;
+  font-weight: lighter;
+}
+/*======lectures.HTML css=====*/
+
+.btn{
+  margin: 5px 5px;
+  background: rgb(3, 179, 3);
+  color: #fff;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+.btn:hover
+{
+    background-color: rgb(56, 100, 11);
+    font-size: 18px;
+}
+
+
+.mainwrap{
+  margin: 10% 70px;
+  line-height: 1.4;
+  display:grid;
+  grid-gap:20px;
+}
+
+.lecturecontent{
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  
+}
+.tutorialcontent{
+  margin-top: 40px;
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+}
+
+.week{
+  background: rgb(214, 243, 248);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 5px 5px black;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CMS Calendar</title>
+</head>
+<body>
+   <header>
+        <nav>
+            <img class="uoftlogo" src="Pics\CMSlogo0.png" alt="Logo">
+            <h1>Calendar</h1>
+          
+            <ul> 
+                <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
+                <li><a data-page="instructors" href="#"><b>Instructors</b></a> </li>
+                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>   
+                <div class="bubble1"></div>  
+            </ul> 
+        </nav>
+   </header>
+   <div id="sidebar">
+       <div class="toggle-btn" onclick="show()">
+           <span></span>
+           <span></span>
+           <span></span>
+       </div>
+       <div class="menu-items">
+           <div class="dashb">Dashboard</div>
+            <ul>
+                <li><a href="index.HTML">Home</a></li>
+                <li><a href="calendar.HTML">Calendar</a></li>
+                <li><a href="https://piazza.com/class/kk052lckppx73x#">Discussion Board</a></li>
+                <li><a href="lectures.HTML">Course Content</a></li>
+                <li><a href="grades.HTML">Grades</a></li>
+                <li><a href="assignments.HTML">Assignments</a></li>
+                <li><a href="tests.HTML">Tests</a></li>
+                <li><a href="links.HTML">Links</a></li>
+            </ul>
+       </div>
+   </div>
+    <div class="calendar-content">
+        <div class="box1-c">
+                <p >If you wish to subscribe to the calendar the address is: <a href="dummy/dummy.pdf">ical format</a></p>
+            <p>
+                <iframe class="calendar" src="https://calendar.google.com/calendar/embed?src=f2oogqnfo1q728k3lcbtr4v478%40group.calendar.google.com&ctz=America%2FToronto"></iframe>
+            </p> 
+        </div>
+        <div class="officehour_box">
+            <div class="bookimg"><img src="Pics/calendar.png" alt="book-image"></div>
+            <div class="officehour_form">
+                <form action="{{ url_for('handle_data') }}" method="post">
+                    <label for="insturctor">Pick an intructor:</label>
+                    <select id="instructorname" type="text" required>
+                        <option value="" disabled selected>...</option> 
+                        <option value="Professor Pedram">Professor Pedram</option>
+                        <option value="Dean Efkan">Dean Efkan</option>
+                        <option value="TA Mohammad">TA Mohammadh</option>
+            
+                    </select>
+                    
+                    <label for="Date">Pick a date:</label>
+                    <select id="date" type="text" required>
+                        <option value="" disabled selected>...</option> 
+                        <option value="April 15th">April 15th</option>
+                        <option value="April 17th">April 17th</option>
+                        <option value="April 19th">April 19th</option>
+                        <option value="April 20th">April 20th</option>
+                        <option value="April 24th">April 24th</option>
+                        <option value="April 28th">April 28th</option>
+                    </select>
+                    <label for="time">Pick a time:</label>
+                    <select id="pass" type="time" name="time" required>
+                        <option value="" disabled selected>...</option> 
+                        <option value="10:00am">10:00am</option>
+                        <option value="11:00am">11:00am</option>
+                        <option value="1:00pm">1:00pm</option>
+                        <option value="3:00pm">3:00pm</option>
+                        <option value="6:00pm">6:00pm</option>
+                    </select>
+                    <label for="subject">What is this booking about?</label>
+                    <textarea name="subject" placeholder="I would like to discuss..."></textarea>
+                    <div class="booking_button"><button type="submit">Book time</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>    
+</html>
+
+
+  
