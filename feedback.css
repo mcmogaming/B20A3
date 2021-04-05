@@ -8,7 +8,7 @@ body {
     margin-left: auto;
     margin-top: 4%;
     margin-bottom: 10%;
-    height: 800px;
+    height: 1400px;
     width: 1500px;
     background-color: #fff;
     border-radius: 20px;
@@ -24,6 +24,46 @@ body {
     font-weight: 500;
 }
 
+.feedback_form ul
+{
+    list-style: none;
+    height:100px;
+    padding: 0;
+}
+
+.feedback_form ul li
+{
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+
+.feedback_form ul li label
+{
+    padding-top: 42px;
+    padding-bottom: 42px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    transition: all 0.2s;
+}
+
+.feedback_form input[type=radio]:checked ~ label{
+    background-color: rgb(14, 14, 102);
+    color: #fff;
+}
+
+.feedback_form ul li input
+{
+    visibility: hidden;
+}
+
+.feedback_form ul li
+{
+    padding-top: 40px;
+}
+
 .feedback_form
 {
     padding-left: 50px;
@@ -31,8 +71,19 @@ body {
     font-size: 25px;
 }
 
-.feedback_form label
+.feedback_form input[type="text"] ~ label
 {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 2px solid rgb(7, 142, 175);
+    border-radius: 10px;
+}
+
+#label1
+{
+    margin-top: 10px;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 3px;

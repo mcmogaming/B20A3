@@ -10,7 +10,25 @@
     <p class="feedback_title">Anonymous Feedback Form</p>
     <div class="feedback_form">
         <form action="{{ url_for('handle_data') }}" method="post">
-            <label for="q1">What do you like about the instructor teaching?</label><br>
+            <ul>
+                <li>
+                    <input type="radio" id="001" name="user_type" value="1" checked="checked">
+                    <label for="001">Anya Tafliovich</label>
+                </li>
+                <li>
+                    <input type="radio" id="002" name="user_type" value="2">
+                    <label for="002">Paco Estrada</label>
+                </li>
+                <li>
+                    <input type="radio" id="003" name="user_type" value="3">
+                    <label for="003">Abbas Attarwala</label>
+                </li>
+                <li>
+                    <input type="radio" id="004" name="user_type" value="4">
+                    <label for="004">Anna Bretscher</label>
+                </li>
+            </ul><br>
+            <label id="label1" for="q1">What do you like about the instructor teaching?</label><br>
             <input id="q1" type="text" placeholder="Please Type Here..." name="question1"><br>
             <label for="q2">What do you recommend the instructor to do to improve their teaching?</label><br>
             <input id="q2" type="text" placeholder="Please Type Here..." name="question2"><br>
