@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="regrade.css">
+<meta charset="utf-8">
+<title>CMS - Regrade Request</title>
+</head>
+<body>
+<div class="content_box">
+    <p class="feedback_title">Regrade Request Form</p>
+    <div class="feedback_form">
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <div class="course_buttons">
+                <ul>
+                    <li>
+                        <input type="radio" id="A08" name="user_type" value="1" checked="checked">
+                        <label for="A08">CSCA08</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="A48" name="user_type" value="2">
+                        <label for="A48">CSCA48</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="B07" name="user_type" value="3">
+                        <label for="B07">CSCB07</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="B20" name="user_type" value="4">
+                        <label for="B20">CSCB20</label>
+                    </li>
+                </ul><br>
+            </div>
+            <div class="drop_menu">
+                <label for="types">Choose Assignment, Quiz or Exam:</label>
+                <select class="types" style="width:200px; height: 30px;" name="types" id="cars">
+                    <option value="a1">Assignment 1</option>
+                    <option value="a2">Assignment 2</option>
+                    <option value="a3">Assignment 3</option>
+                    <option value="a1">Quiz 1</option>
+                    <option value="a2">Quiz 2</option>
+                    <option value="a3">Quiz 3</option>
+                    <option value="a1">Quiz 4</option>
+                    <option value="a2">Midterm</option>
+                    <option value="a3">Final</option>
+                </select>
+                <br>
+            </div>
+            <div class="text_box">
+                <p>Please explain your regrade request below</p>
+                <textarea name="rr_details" rows="18" cols="90">
+                    At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                </textarea>
+            </div><br>
+            <div class="regrade_button"><button type="submit">Submit Request</button></div>
+        </form>
+    </div>
+</div>
+</body> 
+</html>
