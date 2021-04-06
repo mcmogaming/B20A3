@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Dashboard
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/backend/static/css/maintheme.css">
+</head>
+
+<body>
+
+
+    <div class="sidebar">
+        <h4>Admin</h4>
+        <img src="images/avatar.png">
+        <h4>Dummy Name</h4>
+        <hr class="rounded">
+        <a class="sidebaritem" onclick="changecourse('A48')"> Course 1 </a>
+        <a class="sidebaritem" onclick="changecourse('A48')"> Course 2 </a>
+        <a class="sidebaritem" onclick="changecourse('A48')"> Course 3 </a>
+        <a class="sidebaritem" onclick="changecourse('A48')"> Course 4 </a>
+    </div>
+
+    <div class="content">
+        <iframe src="https://quietdayz.com" id="content-iframe" width="100%" height="100%" style="border:none; ">
+        </iframe>
+    </div>
+
+    <div>
+
+    </div>
+
+
+    <script>
+        function changecourse(course) {
+            iframe = document.getElementById("content-iframe");
+            iframe.setAttribute("src", "/courses/" + course)
+        }
+    </script>
+</body>
+
+</html>

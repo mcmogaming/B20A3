@@ -57,8 +57,20 @@ body {
     transition: all 0.2s;
 }
 
-.login_button button:hover
-{
+.login_error_box {
+    background-color: rgb(211, 42, 42);
+    margin-right: 40vw;
+    margin-left: 40vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 550px;
+    width: 384px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 10px black;
+}
+
+.login_button button:hover {
     background-color: rgb(56, 100, 11);
     font-size: 21px;
 }
@@ -76,14 +88,13 @@ body {
     box-shadow: 5px 10px black;
 }
 
-.create_account
-{
+.create_account {
     margin-top: 140px;
 }
 
 .create_account button {
     width: 60%;
-    height:25px;
+    height: 25px;
     margin-left: 20%;
     margin-right: 20%;
     background-color: rgb(0, 110, 255);
@@ -92,14 +103,12 @@ body {
     transition: all 0.2s;
 }
 
-.create_account button:hover 
-{
-    height:35px;
+.create_account button:hover {
+    height: 35px;
     background-color: rgba(15, 137, 194, 0.979);
     font-size: 16px;
 }
 
-input:focus
-{
+input:focus {
     outline: none;
 }

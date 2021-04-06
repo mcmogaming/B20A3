@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+    <meta charset="utf-8">
+    <title>CMS Login</title>
+</head>
+
+<body>
+    <div class="content_box">
+        <div class="title_bar">Create an account</div>
+        <div class="register_form">
+            <form action="{{url_for('register')}}" method="post">
+                <input id="fname" type="text" placeholder="Full Name" name="fullname" required><br />
+                <input id="uname" type="text" placeholder="Username" name="username" required><br />
+                <input id="pass" type="password" placeholder="Password" name="password" required><br />
+                <input id="rptpass" type="password" placeholder="Repeat Password" name="password_r" required><br />
+                <input id="sdtnum" type="number" placeholder="Student Number" name="userid" required><br />
+                <input placeholder="Courses ie. CSCA48, CSCB07, CSCB09)" name="courses"><br />
+                <input list="privilege" placeholder="Privilege Level (debug)" name="privilege">
+                <datalist id="privilege">
+                    <option value="Guest">
+                    <option value="Student">
+                    <option value="Teaching Assistant">
+                    <option value="Professor">
+                    <option value="Admin">
+                  </datalist>
+                <div class="submit_button"><button type="submit">Register</button></div>
+                {% if loginexists%}
+                <div class="error_box">
+                    Username or StudentID already exists.
+                </div>
+                {% endif %} {% if g.passwordnotmatch %}
+                <div class="error_box">
+                    Passwords don't match.
+                </div>
+                {% endif %} {% if g.invalid_username %}
+                <div class="error_box">
+                    Username is not alphanumeric
+                </div>
+                {% endif %} {% if g.invalid_password %}
+                <div class="error_box">
+                    Password is not alphanumeric
+                </div>
+                {% endif %} {% if g.userid %}
+                <div class="error_box">
+                    StudentId isn't numeric [0-9]*
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

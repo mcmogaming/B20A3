@@ -16,12 +16,17 @@
                 <input id="pass" type="password" placeholder="Password" name="password" required>
                 <div class="login_button"><button type="submit">Login</button></div>
             </form>
-            {% if login_failed%}
-            <div class="login_error_box">
-                Incorrect Username or Password
-            </div>
-            {% endif %}
         </div>
+        <div class="create_account"><a href="{{url_for('register')}}"><button>Create Account</button></a></div>
+        {% if login_failed%}
+        <div class="error_box">
+            Incorrect Username or Password
+        </div>
+        {% endif %} {% if g.accountcreated %}
+        <div class="green_box">
+            Successfully Created Account
+        </div>
+        {% endif %}
     </div>
 </body>
 
