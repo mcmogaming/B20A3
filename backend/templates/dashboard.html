@@ -20,7 +20,7 @@
         <img src="/static/images/avatar.png">
         <h4>{{g.name}}</h4>
         <hr class="rounded"> {% for c in g.courses %}
-        <a class="sidebaritem" onclick="changecourse('{{c}}')"> {{c}} </a> {% endfor %}
+        <a class="sidebaritem" href="/courses/{{c}}"> {{c}} </a> {% endfor %}
     </div>
 
     <div class="content">

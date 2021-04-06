@@ -46,7 +46,7 @@ def do_the_login(username,password):
         else:
             print('Fail')    
         sessionId = newSessionID()
-        userquery = d.query_assoc('SELECT * FROM login_credentials WHERE username = '' + username + ''')[0]
+        userquery = d.query_assoc("SELECT * FROM login_credentials WHERE username = '" + username + "'")[0]
         user = User(userquery)
         SESSIONS[sessionId] = user
         resp = make_response(redirect('/dashboard'))
@@ -65,6 +65,12 @@ def check_login(username, password):
         if row[1] == username and row[2] == hashlib.md5(password.encode()).hexdigest():
             return True
     return False    
+
+def get_userid():
+    if 'sessionId' in request.cookies:
+        if request.cookies.get('sessionId') in SESSIONS.keys():
+            return SESSIONS[request.cookies.get('sessionId')].userid
+    return -1        
 
 #Register Page
 @app.route('/register', methods=['GET','POST'])
@@ -188,3 +194,107 @@ class User:
         else:
             self.privilege_title = 'Unknown'
         
+#course
+@app.route('/courses/<courseid>')
+def show_course_page(courseid):
+    print(courseid)
+    coursepageinfo = d.query("SELECT * FROM coursehomepage WHERE courseid = '"+ courseid +"';")
+    
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
+    
+    g.courseid = courseid
+    g.description = coursepageinfo[0][1]
+    g.instructors = coursepageinfo[0][2]
+    g.timetable = coursepageinfo[0][3]
+
+    return render_template('coursepage.html')
+
+#lectures
+@app.route('/courses/<string:courseid>/lectures')
+def show_course_lectures(courseid):
+    
+    lectures = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+ courseid +"' ORDER BY lec_order;")
+    
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
+
+    g.lectures = lectures
+    g.courseid = courseid
+
+    return render_template('lectures.html')
+
+def checkvalidcourseid(courseid):
+    courses = d.query("SELECT * FROM courses WHERE courseid = '"+ courseid +"';")
+    return len(courses) != 1
+
+
+#lecture content
+@app.route('/courses/<string:courseid>/lectures/<int:lecorder>')
+def show_course_lecture_content(courseid, lecorder):
+    lecture = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+courseid+"' AND lec_order="+str(lecorder)+";")
+
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
+
+    if len(lecture) != 1:
+        return "Error in lecture order value"
+
+    g.lecture = lecture[0]
+    g.courseid = courseid
+    
+    return render_template('lecturecontent.html')
+    
+
+#grades
+@app.route('/courses/<string:courseid>/grades')
+def show_course_grades(courseid):
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    if privilege == 1:
+        return show_course_grades_student(user, courseid)
+    if privilege == 3:
+        return show_course_grades_professor(user, courseid)
+    else:
+        return "Error: You aren't a student or professor"
+
+def show_course_grades_student(user, courseid):
+    grades = d.query_assoc("SELECT * FROM grades WHERE courseid = '"+courseid+"' AND userid="+str(userid)+";")
+    
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
+
+    print("Grades: " + str(len(grades)) + "Userid: " + str(userid))
+    g.grades = grades
+    g.courseid = courseid
+    g.name = user.name
+    
+    return render_template('grades.html')
+
+def show_course_grades_professor(user, courseid):
+    sql = "SELECT * FROM grades WHERE "
+
+    for c in user.courses :
+        sql += " courseid = '"+c+"' OR"
+
+    sql = sql[0:len(sql)-2]
+    sql += ";"
+
+    print("SQL:"+sql)
+
+    grades = d.query_assoc(sql)
+
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
+
+    print("Grades: " + str(len(grades)) + "Userid: " + str(user.userid))
+    g.grades = grades
+    g.courseid = courseid
+    g.name = user.name
+    
+    return render_template('grades.html')

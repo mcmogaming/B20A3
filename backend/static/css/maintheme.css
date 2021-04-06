@@ -130,9 +130,16 @@ body {
 }
 
 .content {
+    display: grid;
     margin-left: 10px;
     width: 100%;
     height: 100%;
+}
+
+.course {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
 }
 
 .textarea h2 {

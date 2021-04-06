@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>CMS Performance</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img class="uoftlogo" src="/static/images/CMSlogo.png" alt="Logo">
+            <h1>Content</h1>
+
+            <ul>
+                <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
+                <li><a data-page="instructors" href="#"><b>Instructors</b></a> </li>
+                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>
+                <div class="bubble1"></div>
+            </ul>
+        </nav>
+    </header>
+    <h1>{{g.courseid}}</h1>
+    <div id="sidebar">
+        <div class="toggle-btn" onclick="show()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-items">
+            <div class="dashb">Dashboard</div>
+            <ul>
+                <li><a href="/courses/{{g.courseid}}">Home</a></li>
+                <li><a href="calendar.HTML">Calendar</a></li>
+                <li><a href="https://piazza.com/class/kk052lckppx73x#">Discussion Board</a></li>
+                <li><a href="/courses/{{g.courseid}}/lectures">Course Content</a></li>
+                <li><a href="/courses/{{g.courseid}}/grades">Grades</a></li>
+                <li><a href="assignments.HTML">Assignments</a></li>
+                <li><a href="tests.HTML">Tests</a></li>
+                <li><a href="links.HTML">Links</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainwrap">
+        <section class="lecturecontent">
+            {%for lec in g.lectures %}
+            <div class="week">
+                <h4 class="item1">{{lec['lec_title']}}</h4>
+                <a href="/courses/{{g.courseid}}/lectures/{{lec['lec_order']}}" class="btn">Content</a>
+            </div>
+            {%endfor%}
+        </section>
+    </div>
+
+
+
+
+</body>
+<script src="/static/js/main.js"></script>
+
+</html>

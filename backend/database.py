@@ -15,6 +15,7 @@ def query(sql):
     cur = con.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
+    con.commit()
     con.close()
     return rows
 
