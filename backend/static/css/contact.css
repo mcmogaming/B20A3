@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(214, 243, 248);
+    font-family: muli, sans-serif;
+}
+
+.content_box {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 300px;
+    width: 1000px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 10px black;
+}
+
+.contact_title {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 35px;
+    margin-bottom: 60px;
+    font-weight: 500;
+}
+
+.contact_bar {
+    width: 80%;
+    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(111, 113, 134, 0.705);
+}
+
+.contact_bar div {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    height: 100px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+    transition: all 0.2s;
+}
+
+.contact_bar div:hover {
+    opacity: 50%;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>CMS Performance</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img class="uoftlogo" src="/static/images/CMSlogo.png" alt="Logo">
+            <h1>Instructor Feedback</h1>
+
+            <ul>
+                <li><a data-page="course" href="/courses"><b>Back to Courses</b></a> </li>
+                <div class="bubble1"></div>
+            </ul>
+        </nav>
+    </header>
+    <div class="mainwrap">
+        <section class="lecturecontent">
+            {%for fb in g.feedback %}
+            <div class="week">
+                <h3>ID:{{fb['feedbackid']}}</h3>
+                <h4 class="item1">What do you like about the instructor teaching?</h4>
+                <p>{{fb['q1']}}</p>
+                <h4 class="item1">What do you recommend the instructor to do to improve their teaching?</h4>
+                <p>{{fb['q2']}}</p>
+                <h4 class="item1">What do you like about the labs?</h4>
+                <p>{{fb['q3']}}</p>
+                <h4 class="item1">What do you recommend the lab instructors to do to improve their lab teaching?</h4>
+                <p>{{fb['q4']}}</p>
+                <a href="/feedback/remove/{{fb['feedbackid']}}" class="btn">Delete</a>
+            </div>
+            {%endfor%}
+        </section>
+    </div>
+
+
+
+
+</body>
+<script src="/static/js/main.js"></script>
+
+</html>

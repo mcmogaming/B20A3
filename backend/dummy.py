@@ -6,13 +6,16 @@ import string
 from flask import Flask, render_template, request, g, redirect, url_for, make_response
 import random as rand
 
-COURSES = ('CSCA08','CSCA48','CSCB07','CSCB20')
+COURSES = ('CSCA08','CSCA48','CSCB20','CSCB63')
+PROFID = {10,11,12,13}
 
 #delete all data in tables
 d.query("DELETE FROM assignments;")
 d.query("DELETE FROM grades;")
 d.query("DELETE FROM coursehomepage;")
 d.query("DELETE FROM lectures;")
+d.query("DELETE FROM feedback;")
+
 
 #insert dummy 
 
@@ -34,3 +37,11 @@ for c in COURSES:
     #insert lectures
     for i in range(1,5):
         d.query_t("INSERT INTO 'main'.'lectures'('courseid','lec_order','lec_title','html') VALUES (?,?,?,?);",(c, i, 'Week' + str(i), 'This is the html stuff for week' + str(i)) )
+
+#for each prof insert dummy data
+for p in PROFID:
+    sql = "INSERT INTO 'main'.'feedback'('userid','q1','q2','q3','q4') VALUES (?,?,?,?,?);"
+    d.query_t(sql, (p, "Good speaker"+str(p), "nothing", "intersting topics", "prepare before labs"))
+    d.query_t(sql, (p, "Enthusiastic"+str(p), "Nothingmuch", "cool topics", "labs need more content"))
+    d.query_t(sql, (p, "Great Explainer"+str(p), "Nothing much", "topics are related to course", "create a ta website"))
+

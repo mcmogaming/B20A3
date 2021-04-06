@@ -298,3 +298,58 @@ def show_course_grades_professor(user, courseid):
     g.name = user.name
     
     return render_template('grades.html')
+
+#feedback
+@app.route("/feedback", methods=['GET','POST'])
+def feedback():
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    if request.method == 'POST':
+        return send_feedback(user)
+    else:
+        if privilege == 1:
+            return show_feedback_page_student(user)
+        elif privilege == 3:
+            return show_feedback_page_professor(user)
+        else:
+            return "Error you aren't a student or professor, try logging in"
+def show_feedback_page_student(user):
+
+    #get list of all professors
+    professors = d.query_assoc("SELECT * FROM login_credentials where privilege = 3;")
+    g.professors = professors
+
+    return render_template('feedback.html')
+
+def show_feedback_page_professor(user):
+
+    #get list of all feedback of a professor
+    sql = "SELECT * FROM feedback WHERE userid="+str(user.userid)+";"
+    
+    feedback = d.query_assoc(sql)
+
+    g.feedback = feedback
+
+    return render_template('feedbackviewer.html')
+
+
+def send_feedback(user):
+    userid = request.form['userid']
+    q1 = request.form['q1']
+    q2 = request.form['q2']
+    q3 = request.form['q3']
+    q4 = request.form['q4']
+
+    sql = "INSERT INTO 'main'.'feedback'('userid','q1','q2','q3','q4') VALUES (?,?,?,?,?);"
+    d.query_t(sql,(userid, q1,q2,q3,q4))
+    g.feedbacksubmitted = True
+
+    professors = d.query_assoc("SELECT * FROM login_credentials where privilege = 3;")
+    g.professors = professors
+
+    return render_template('feedback.html')
