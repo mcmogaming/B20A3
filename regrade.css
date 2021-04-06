@@ -89,7 +89,7 @@ body {
     border-radius: 10px;
     background-color: aliceblue;
     padding-top: 4px;
-    transition: all 0.2s;
+    transition: all 1.0s;
 }
 
 .types:focus
