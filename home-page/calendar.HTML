@@ -12,6 +12,7 @@
 <body>
     <header>
         <nav>
+<<<<<<< HEAD
             <img class="uoftlogo" src="Pics\CMSlogo0.png" alt="Logo">
             <h1>Calendar</h1>
 
@@ -22,6 +23,17 @@
                 <div class="bubble1"></div>
             </ul>
 
+=======
+            <img class="uoftlogo" src="Pics\CMSlogo1.png" alt="Logo">
+            <h1 class="courseid">B63</h1>
+            <h1>Courses</h1>
+        
+            <ul> 
+                <li><a  href="courseselect.html"><b>Courses</b></a> </li>
+                <li><a  href="feedback.html"><b>Feedback</b></a> </li>
+                <li><a  href="#"><b>Logout</b></a> </li>     
+            </ul> 
+>>>>>>> 9f5ecc9f3c7d42c685481850f2b1cf518bac0901
         </nav>
     </header>
     <div id="sidebar">
@@ -55,7 +67,7 @@
             <div class="bookimg"><img src="Pics/calendar.png" alt="book-image"></div>
             <div class="officehour_form">
                 <form action="{{ url_for('handle_data') }}" method="post">
-                    <label for="insturctor">Pick an intructor:</label>
+                    <label for="insturctor">Pick an instructor:</label>
                     <select id="instructorname" type="text" required>
                         <option value="" disabled selected>...</option> 
                         <option value="Professor Pedram">Professor Pedram</option>
@@ -90,6 +102,12 @@
         </div>
     </div>
 </body>
+<<<<<<< HEAD
 <script src="main.js"></script>
+=======
+<script src="js/main.js"></script>    
+</html>
+
+>>>>>>> 9f5ecc9f3c7d42c685481850f2b1cf518bac0901
 
 </html>
