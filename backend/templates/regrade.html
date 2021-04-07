@@ -32,7 +32,7 @@
                     </ul><br>
                 </div>
                 <div class="drop_menu">
-                    <label for="types">Choose Assignment, Quiz or Exam From all Courses:</label>
+                    <label for="types">Choose Assignment, Quiz or Exam:</label>
                     <select class="types" style="width:200px; height: 30px;" name="assignment_name" id="cars">
                         {% for as in g.assignmentnames %}
                             <option value="{{as['assignment_name']}}">{{as['assignment_name']}}</option>

@@ -584,6 +584,21 @@ select {
     max-width: 95%;
 }
 
+.week h3
+{
+    margin-bottom: 14px;
+}
+
+.week h4
+{
+    margin-bottom: 8px;
+}
+
+.week p
+{
+    margin-bottom: 25px;
+}
+
 .leccontent {
     margin-top: 20px;
     color: #fff;

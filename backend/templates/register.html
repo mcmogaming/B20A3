@@ -18,14 +18,11 @@
                 <input id="rptpass" type="password" placeholder="Repeat Password" name="password_r" required><br />
                 <input id="sdtnum" type="number" placeholder="Student Number" name="userid" required><br />
                 <input placeholder="Courses ie. CSCA48, CSCB07, CSCB09)" name="courses"><br />
-                <input list="privilege" placeholder="Privilege Level (debug)" name="privilege">
-                <datalist id="privilege">
-                    <option value="Guest">
-                    <option value="Student">
-                    <option value="Teaching Assistant">
-                    <option value="Professor">
-                    <option value="Admin">
-                  </datalist>
+                <select name="privilege">
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="Student">Student</option>
+                    <option value="Professor">Instructor</option>
+                </select>
                 <div class="submit_button"><button type="submit">Register</button></div>
                 {% if loginexists%}
                 <div class="error_box">
