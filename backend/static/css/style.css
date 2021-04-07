@@ -126,6 +126,11 @@ nav a:hover {
     left: 330px;
 }
 
+#sidebar .toggle-btn:hover
+{
+    cursor: pointer;
+}
+
 .toggle-btn span {
     width: 45px;
     height: 4px;
