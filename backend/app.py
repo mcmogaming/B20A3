@@ -243,16 +243,23 @@ def checkvalidcourseid(courseid):
 def show_course_lecture_content(courseid, lecorder):
     if check_session():
         return redirect('/login')
-    lecture = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+courseid+"' AND lec_order="+str(lecorder)+";")
+        
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
 
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    lecture = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+courseid+"' AND lec_order="+str(lecorder)+";")
+    
     if checkvalidcourseid(courseid):
         return "Course ID is invalid"
 
     if len(lecture) != 1:
         return "Error in lecture order value"
 
-    userid = get_userid()
-    g.name = userid.name
+    g.name = user.name
     g.lecture = lecture[0]
     g.courseid = courseid
     
