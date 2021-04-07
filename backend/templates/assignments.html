@@ -42,11 +42,12 @@
     </div>
     <div class="mainwrap">
         <section class="lecturecontent">
-            {%for grade in g.grades%}
+            {%for as in g.assignments%}
             <div class="week">
-                <h3 class="item1">{{grade['assignment_name']}}</h3>
-                <h4 class="item1">Mark:{{grade['grade']}}</h4>
-                <h4 class="item1">StudentID:{{grade['userid']}}</h4>
+                <h3 class="item1">{{as['assignment_name']}}</h3>
+                <h4 class="item1">Total Marks:{{as['total_marks']}}</h4>
+                <h4 class="item1">Course Percentage:{{as['course_percentage']}}</h4>
+                <h4 class="item1">Due Date:{{as['due_date']}}</h4>
                 <a href="/courses/{{g.courseid}}/regrade" class="btn">Regrade</a>
             </div>
             {%endfor%}

@@ -14,11 +14,11 @@
         <nav>
             <img class="uoftlogo" src="/static/images/CMSlogo.png" alt="Logo">
             <h1>Home</h1>
-
+            <h2>{{g.courseid}}</h2>
             <ul>
-                <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
-                <li><a data-page="instructors" href="#"><b>Instructors</b></a> </li>
-                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>
+                <li><a href="/dashboard"><b>Courses</b></a> </li>
+                <li><a href="/feedback"><b>Feedback</b></a> </li>
+                <li><a href="/logout"><b>Logout</b></a> </li>
                 <div class="bubble1"></div>
             </ul>
         </nav>
@@ -30,20 +30,16 @@
             <span></span>
         </div>
         <div class="menu-items">
-            <div class="dashb">Dashboard</div>
+            <div class="dashb">{{g.name}}</div>
             <ul>
                 <li><a href="/courses/{{g.courseid}}">Home</a></li>
-                <li><a href="calendar.HTML">Calendar</a></li>
                 <li><a href="https://piazza.com/class/kk052lckppx73x#">Discussion Board</a></li>
                 <li><a href="/courses/{{g.courseid}}/lectures">Course Content</a></li>
                 <li><a href="/courses/{{g.courseid}}/grades">Grades</a></li>
-                <li><a href="assignments.HTML">Assignments</a></li>
-                <li><a href="tests.HTML">Tests</a></li>
-                <li><a href="links.HTML">Links</a></li>
+                <li><a href="/courses/{{g.courseid}}/assignments">Assignments</a></li>
             </ul>
         </div>
     </div>
-    <h1>{{g.courseid}}</h1>
     <div class="homecontent">
         <div class="coursedescription">
             <h3>Course Description</h3>

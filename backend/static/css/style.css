@@ -32,7 +32,8 @@ header {
     padding-bottom: 1px;
     position: sticky;
     top: 0px;
-    background: white;
+    background: rgb(187, 239, 249);
+    box-shadow: 1px 1px 1px black;
 }
 
 nav {
@@ -76,7 +77,7 @@ nav a:hover {
     position: fixed;
     width: 300px;
     height: 100%;
-    background: #082c5c;
+    background: #306bac;
     left: -300px;
     transition: 0.4s ease;
 }
@@ -168,31 +169,33 @@ section h2 {
 
 .coursedescription {
     grid-column: 1/2;
-    background-color: #292727;
+    background-color: #121420;
     align-self: flex-start;
     border: 2px #3b3939 solid;
+    box-shadow: 5px 5px 5px black;
 }
 
 .instructors {
     grid-column: 1/2;
-    background-color: #292727;
+    background-color: #121420;
     align-self: flex-start;
     border: 2px #3b3939 solid;
+    box-shadow: 5px 5px 5px black;
 }
 
 .TimeTable {
     grid-column: 1/2;
-    background-color: #292727;
+    background-color: #121420;
     align-self: flex-start;
-    border: 2px #3b3939 solid;
+    box-shadow: 5px 5px 5px black;
 }
 
 .eventswidget {
     grid-column: 2/3;
     grid-row: 2/4;
-    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    background: #306bac;
     align-self: flex-start;
-    border: 2px #3b3939 solid;
+    box-shadow: 5px 5px 5px black;
 }
 
 .eventswidget h3 {
@@ -221,9 +224,9 @@ section h2 {
 .feedback {
     grid-column: 2/3;
     grid-row: 1/3;
-    background-image: linear-gradient(160deg, #0c5497 0%, #071669 74%);
+    background: #306bac;
     align-self: flex-start;
-    border: 2px #3b3939 solid;
+    box-shadow: 5px 5px 5px black;
 }
 
 .feedback h3 {
@@ -246,7 +249,7 @@ section h2 {
     margin-top: 3%;
     display: grid;
     grid-template-columns: 5% 20% auto 20% 5%;
-    place-items: center;
+    justify-content: space-around;
 }
 
 .box1-c {
@@ -278,8 +281,8 @@ section h2 {
 }
 
 .officehour_box {
-    margin-right: 40vw;
-    margin-left: 40vw;
+    margin-right: 10%;
+    margin-left: 10%;
     margin-top: 10%;
     margin-bottom: 10%;
     height: 550px;
@@ -339,10 +342,10 @@ select {
 .booking_button button {
     border-width: 0px;
     border-radius: 6px;
-    background-color: green;
+    background-color: #ffdd4a;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
-    color: #fff;
+    color: black;
     height: 55px;
     width: 40%;
     margin-left: 30%;
@@ -351,7 +354,7 @@ select {
 }
 
 .booking_button button:hover {
-    background-color: rgb(56, 100, 11);
+    background-color: #f9d01b;
     font-size: 21px;
 }
 
@@ -380,7 +383,7 @@ select {
 }
 
 .boxass {
-    background-color: rgb(138, 253, 253);
+    background-color: #d6f3f8;
     margin-top: 20px;
     margin-bottom: 10px;
     border: 2px #3b3939 solid;
@@ -434,10 +437,10 @@ select {
 .assignments_button button {
     border-width: 0px;
     border-radius: 6px;
-    background-color: green;
+    background-color: #ffdd4a;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
-    color: #fff;
+    color: black;
     height: 40%;
     width: 40%;
     margin-left: 30%;
@@ -446,7 +449,7 @@ select {
 }
 
 .assignments_button button:hover {
-    background-color: rgb(56, 100, 11);
+    background-color: #fcd420;
     font-size: 18px;
 }
 
@@ -500,20 +503,40 @@ select {
 
 /*======lectures.HTML css=====*/
 
-.btn {
-    margin: 5px 5px;
-    background: rgb(3, 179, 3);
-    color: #fff;
-    padding: 0.6rem 1.3rem;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s ease;
+.toptitle {
+    color: #111;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    padding-top: 70px;
+    text-align: center;
 }
 
-.btn-red {
-    margin: 5px 5px;
-    background: rgb(185, 38, 38);
-    color: #fff;
+.topline {
+    width: 40%;
+    border-top: 4px solid rgb(0, 0, 0);
+    margin: auto;
+}
+
+.midtitle {
+    color: #111;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.midline {
+    width: 50%;
+    border-top: 4px solid rgb(0, 0, 0);
+    margin: auto;
+}
+
+.btn {
+    margin: 8px 8px;
+    background: #ffdd4a;
+    color: black;
     padding: 0.6rem 1.3rem;
     text-decoration: none;
     border-radius: 6px;
@@ -521,21 +544,19 @@ select {
 }
 
 .btn:hover {
-    background-color: rgb(56, 100, 11);
-    font-size: 18px;
-}
-
-.btn-red:hover {
-    background-color: rgb(102, 22, 22);
-    font-size: 18px;
+    background-color: #edc71c;
+    font-size: 17px;
 }
 
 .mainwrap {
-    margin: 10% 70px;
+    margin: 5% 70px;
     line-height: 1.4;
     display: grid;
     grid-gap: 20px;
 }
+
+
+/*==== Lecture content* pages css====*/
 
 .lecturecontent {
     display: grid;
@@ -559,4 +580,131 @@ select {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 250px;
+    max-width: 95%;
+}
+
+.leccontent {
+    margin-top: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.leccontent div {
+    padding: 20px;
+    margin: 60px;
+    border-radius: 10px;
+}
+
+.leccontent a:visited {
+    color: rgb(247, 250, 200);
+}
+
+.leccontent a:link {
+    color: rgb(247, 250, 200);
+}
+
+.leccontent a:hover {
+    color: rgb(240, 187, 109);
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.Prelec h3 {
+    text-align: center;
+}
+
+.SlidesVideos h3 {
+    text-align: center;
+}
+
+.Prelec hr {
+    width: 60%;
+    margin-left: 100px;
+}
+
+.SlidesVideos hr {
+    width: 68%;
+    margin-left: 78px;
+}
+
+.Prelec {
+    background-color: #292727;
+    border-radius: 5px;
+    border: 2px #3b3939 solid;
+    flex: 1;
+}
+
+.SlidesVideos {
+    background-color: #292727;
+    border-radius: 5px;
+    border: 2px #3b3939 solid;
+    flex: 1;
+}
+
+.leccontent a:hover {
+    font-style: italic;
+}
+
+.preleccontent {
+    line-height: 40px;
+}
+
+
+/*====courseselectionpage=====*/
+
+.mainwrapcourses {
+    margin: 10% 70px;
+    line-height: 1.4;
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.profilename {
+    padding-top: 20px;
+}
+
+.profiletype {
+    padding-bottom: 10px;
+}
+
+.profilepic {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+}
+
+.profile {
+    color: white;
+    background: #306bac;
+    text-align: center;
+    box-shadow: 5px 5px black;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    max-width: 80%;
+}
+
+.course {
+    background: rgb(214, 243, 248);
+    text-align: center;
+    box-shadow: 5px 5px black;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.course:hover {
+    background: rgb(156, 204, 213);
 }

@@ -16,7 +16,7 @@
             <h1>Instructor Feedback</h1>
 
             <ul>
-                <li><a data-page="course" href="/courses"><b>Back to Courses</b></a> </li>
+                <li><a data-page="course" href="/dashboard"><b>Back to Courses</b></a> </li>
                 <div class="bubble1"></div>
             </ul>
         </nav>
@@ -34,7 +34,7 @@
                 <p>{{fb['q3']}}</p>
                 <h4 class="item1">What do you recommend the lab instructors to do to improve their lab teaching?</h4>
                 <p>{{fb['q4']}}</p>
-                <a href="/feedback/remove/{{fb['feedbackid']}}" class="btn">Delete</a>
+                <a href="/delete/feedback/{{fb['feedbackid']}}" class="btn">Delete</a>
             </div>
             {%endfor%}
         </section>

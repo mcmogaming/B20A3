@@ -15,7 +15,7 @@ d.query("DELETE FROM grades;")
 d.query("DELETE FROM coursehomepage;")
 d.query("DELETE FROM lectures;")
 d.query("DELETE FROM feedback;")
-
+d.query("DELETE FROM regrades;")
 
 #insert dummy 
 
@@ -37,6 +37,12 @@ for c in COURSES:
     #insert lectures
     for i in range(1,5):
         d.query_t("INSERT INTO 'main'.'lectures'('courseid','lec_order','lec_title','html') VALUES (?,?,?,?);",(c, i, 'Week' + str(i), 'This is the html stuff for week' + str(i)) )
+
+    #insert regrade requests
+    for w in range(1,5):
+        d.query_t("INSERT INTO 'main'.'regrades'('userid','courseid','assignment_name','reason') VALUES (?,?,?,?);", (w, c, 'Assignment 1', 'This is dummy reason'))
+        d.query_t("INSERT INTO 'main'.'regrades'('userid','courseid','assignment_name','reason') VALUES (?,?,?,?);", (w, c, 'Assignment 2', 'We want more marks'))
+        d.query_t("INSERT INTO 'main'.'regrades'('userid','courseid','assignment_name','reason') VALUES (?,?,?,?);", (w, c, 'Assignment 3', 'We can do better :('))
 
 #for each prof insert dummy data
 for p in PROFID:

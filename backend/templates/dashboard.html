@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        Dashboard
-    </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/maintheme.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>CMS courses</title>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <img class="uoftlogo" src="/static/images/CMSlogo1.png" alt="Logo">
+            <h1>Dashboard</h1>
+            <h2>{{g.courseid}}</h2>
+            <ul>
+                <li><a href="/dashboard"><b>Courses</b></a> </li>
+                <li><a href="/feedback"><b>Feedback</b></a> </li>
+                <li><a href="/logout"><b>Logout</b></a> </li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class="mainwrapcourses">
+        <section class="profile">
+            <h4 class="profiletype">{{g.privilege}}</h4>
+            <img src="/static/images/user.png" alt="userpng" class="profilepic">
+            <h4 class="profilename">{{g.name}}</h4>
+        </section>
+        {% for c in g.courses %}
+        <section class="course" onclick="location.href='/courses/{{c}}/lectures';">
+            <h2>{{ c }}</h2>
+            <p>Computer Science</p>
+        </section>
+        {% endfor %}
 
-    <div class="sidebar">
-        <h4>{{g.privilege}}</h4>
-        <img src="/static/images/avatar.png">
-        <h4>{{g.name}}</h4>
-        <hr class="rounded"> {% for c in g.courses %}
-        <a class="sidebaritem" href="/courses/{{c}}"> {{c}} </a> {% endfor %}
     </div>
-
-    <div class="content">
-        <iframe src="/home" id=" content-iframe" width="100% " height="100% " style="border:none; ">
-        </iframe>
-    </div>
-
-    <div>
-
-    </div>
-
-
-    <script>
-        function changecourse(course) {
-            iframe = document.getElementById("content-iframe ");
-            iframe.setAttribute("src ", "/courses/ " + course)
-        }
-    </script>
 </body>
+<script src="/static/js/main.js"></script>
 
 </html>

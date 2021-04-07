@@ -193,6 +193,9 @@ class User:
 #course
 @app.route('/courses/<courseid>')
 def show_course_page(courseid):
+    if check_session():
+        return redirect('/login')
+
     print(courseid)
     coursepageinfo = d.query("SELECT * FROM coursehomepage WHERE courseid = '"+ courseid +"';")
     
@@ -209,7 +212,16 @@ def show_course_page(courseid):
 #lectures
 @app.route('/courses/<string:courseid>/lectures')
 def show_course_lectures(courseid):
+    if check_session():
+        return redirect('/login')
     
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
     lectures = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+ courseid +"' ORDER BY lec_order;")
     
     if checkvalidcourseid(courseid):
@@ -217,6 +229,7 @@ def show_course_lectures(courseid):
 
     g.lectures = lectures
     g.courseid = courseid
+    g.name = user.name
 
     return render_template('lectures.html')
 
@@ -228,6 +241,8 @@ def checkvalidcourseid(courseid):
 #lecture content
 @app.route('/courses/<string:courseid>/lectures/<int:lecorder>')
 def show_course_lecture_content(courseid, lecorder):
+    if check_session():
+        return redirect('/login')
     lecture = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+courseid+"' AND lec_order="+str(lecorder)+";")
 
     if checkvalidcourseid(courseid):
@@ -236,6 +251,8 @@ def show_course_lecture_content(courseid, lecorder):
     if len(lecture) != 1:
         return "Error in lecture order value"
 
+    userid = get_userid()
+    g.name = userid.name
     g.lecture = lecture[0]
     g.courseid = courseid
     
@@ -245,6 +262,8 @@ def show_course_lecture_content(courseid, lecorder):
 #grades
 @app.route('/courses/<string:courseid>/grades')
 def show_course_grades(courseid):
+    if check_session():
+        return redirect('/login')
     userid = get_userid()
     if userid == -1:
         return "Invalid userid, try logging in"    
@@ -299,6 +318,9 @@ def show_course_grades_professor(user, courseid):
 #feedback
 @app.route("/feedback", methods=['GET','POST'])
 def feedback():
+    if check_session():
+        return redirect('/login')
+
     userid = get_userid()
     if userid == -1:
         return "Invalid userid, try logging in"    
@@ -350,6 +372,15 @@ def send_feedback(user):
 
     return render_template('feedback.html')
 
+#delete feedback requests
+@app.route('/delete/feedback/<int:id>')
+def deletefeedback(id):
+    if check_session():
+        return redirect('/login')    
+    sql = "DELETE FROM 'main'.'feedback' WHERE feedbackid = "+str(id)+";"
+    d.query_t(sql, ())
+    return feedback()
+
 #logout
 @app.route('/logout')
 def logout():
@@ -357,7 +388,7 @@ def logout():
     #check if sessionid is in session
     sessionId = request.cookies.get('sessionId')
     if(sessionId in SESSIONS.keys()):
-    #remove it from sessions dictionary
+    #remove it from sessions dictionary if it exists
         SESSIONS.pop(sessionId, None)
     
     #return user to hompage
@@ -366,6 +397,8 @@ def logout():
 #regrade request
 @app.route('/courses/<string:courseid>/regrade', methods=['GET','POST'])
 def regrade(courseid):
+    if check_session():
+        return redirect('/login')
     userid = get_userid()
     if userid == -1:
         return "Invalid userid, try logging in"    
@@ -430,6 +463,8 @@ def show_regrade_page_professor(user,courseid):
 #delete regrade requests
 @app.route('/delete/regrade/<string:courseid>/<int:id>')
 def delete(courseid,id):
+    if check_session():
+        return redirect('/login')    
     sql = "DELETE FROM 'main'.'regrades' WHERE id = "+str(id)+";"
     d.query_t(sql, ())
     return regrade(courseid)
@@ -438,6 +473,8 @@ def delete(courseid,id):
 #insertgrades
 @app.route('/courses/<string:courseid>/entermarks', methods=['GET','POST'])
 def entermarks(courseid):
+    if check_session():
+        return redirect('/login')    
     userid = get_userid()
     if userid == -1:
         return "Invalid userid, try logging in"    
@@ -501,3 +538,42 @@ def checkuseridexists(userid):
             return True
 
     return False
+
+#assignments
+@app.route('/courses/<string:courseid>/assignments')
+def assignments(courseid):   
+    if check_session():
+        return redirect('/login')     
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    if request.method == 'POST':
+        print("Sending assignment add request")
+        return addassignment(user, courseid)
+    else:
+        if privilege == 1:
+            return show_assignments_page_student(user,courseid)
+        elif privilege == 3:        
+            return show_assignments_page_professor(user,courseid)
+        else:
+            return "Error you aren't a student or professor, try logging in"
+
+def show_assignments_page_student(user,courseid):
+
+    #get assignments from database
+    sql = "SELECT * FROM assignments WHERE courseid='" + courseid +"';"
+    g.assignments = d.query_assoc(sql)
+    g.name = user.name
+    g.courseid = courseid
+
+    return render_template('assignments.html')
+
+def show_assignments_page_professor(user,courseid):
+    return show_assignments_page_student(user,courseid)
+
+def addassignment(user, courseid):
+    return show_assignments_page_student(user,courseid)
