@@ -45,9 +45,9 @@
             {%for as in g.assignments%}
             <div class="week">
                 <h3 class="item1">{{as['assignment_name']}}</h3>
-                <h4 class="item1">Total Marks:{{as['total_marks']}}</h4>
-                <h4 class="item1">Course Percentage:{{as['course_percentage']}}</h4>
-                <h4 class="item1">Due Date:{{as['due_date']}}</h4>
+                <h4 class="item1">Total Marks: {{as['total_marks']}}</h4>
+                <h4 class="item1">Course Percentage: {{as['course_percentage']}}</h4>
+                <h4 class="item1">Due Date: {{as['due_date']}}</h4>
                 <a href="/courses/{{g.courseid}}/regrade" class="btn">Regrade</a>
             </div>
             {%endfor%}
