@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/css/regrade.css">
+    <meta charset="utf-8">
+    <title>CMS - Regrade Request</title>
+</head>
+
+<body>
+    <div class="content_box">
+        <p class="feedback_title">Regrade Request Form</p>
+        <div class="feedback_form">
+            <form action="{{url_for('regrade')}}" method="post">
+                <div class="course_buttons">
+                    <ul>
+                        {% for c in g.courses %}
+                        <li>
+                            <input type="radio" id="{{c}}" name="courseid" value="{{c}}" checked="checked">
+                            <label for="{{c}}">{{c}}</label>
+                        </li>
+                        {% endfor %}
+                    </ul><br>
+                </div>
+                <input type="text">Choose Assignment, Quiz or Exam:</input>
+                <div class="text_box">
+                    <p>Please explain your regrade request below</p>
+                    <textarea name="reason" rows="18" cols="90" placeholder="Please type here..."></textarea>
+                </div><br>
+                <div class="regrade_button"><button type="submit">Submit Request</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

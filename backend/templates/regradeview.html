@@ -28,6 +28,7 @@
         <div class="toggle-btn" onclick="show()">
             <span></span>
             <span></span>
+
             <span></span>
         </div>
         <div class="menu-items">
@@ -46,16 +47,19 @@
     </div>
     <div class="mainwrap">
         <section class="lecturecontent">
-            {%for grade in g.grades%}
+            {%for grade in g.regrades%}
             <div class="week">
                 <h3 class="item1">{{grade['assignment_name']}}</h3>
                 <h4 class="item1">Mark:{{grade['grade']}}</h4>
                 <h4 class="item1">StudentID:{{grade['userid']}}</h4>
-                <a href="/courses/{{g.courseid}}/regrade" class="btn">Regrade</a>
+                <a href="#" class="btn">Delete</a>
             </div>
             {%endfor%}
         </section>
     </div>
+
+
+
 
 </body>
 <script src="/static/js/main.js"></script>

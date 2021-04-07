@@ -90,7 +90,6 @@ def do_register():
     courses = r.form['courses']
     privilege = r.form['privilege']
 
-
     #check inputed values
     sql = "SELECT * FROM 'main'.'login_credentials' WHERE 'username' = ? OR 'userid' = ? "
     num_entries = d.num_entries(sql, (username, userid))
@@ -110,9 +109,6 @@ def do_register():
         print("Password not Alphanumeric")       
         g.invalid_password = True
         return show_register_page()
-    # if not re.match('^[a-zA-Z]*$',fullname):
-    #     g.invalid_fullname = True
-    #     show_register_page()    
     if not re.match('^[0-9]*$',userid):
         print("userid not numeric")         
         g.invalid_userid = True
@@ -264,12 +260,12 @@ def show_course_grades(courseid):
         return "Error: You aren't a student or professor"
 
 def show_course_grades_student(user, courseid):
-    grades = d.query_assoc("SELECT * FROM grades WHERE courseid = '"+courseid+"' AND userid="+str(userid)+";")
+    grades = d.query_assoc("SELECT * FROM grades WHERE courseid = '"+courseid+"' AND userid="+str(user.userid)+";")
     
     if checkvalidcourseid(courseid):
         return "Course ID is invalid"
 
-    print("Grades: " + str(len(grades)) + "Userid: " + str(userid))
+    print("Grades: " + str(len(grades)) + "Userid: " + str(user.userid))
     g.grades = grades
     g.courseid = courseid
     g.name = user.name
@@ -296,8 +292,9 @@ def show_course_grades_professor(user, courseid):
     g.grades = grades
     g.courseid = courseid
     g.name = user.name
+    g.userid = user.userid
     
-    return render_template('grades.html')
+    return render_template('gradesview.html')
 
 #feedback
 @app.route("/feedback", methods=['GET','POST'])
@@ -337,7 +334,6 @@ def show_feedback_page_professor(user):
 
     return render_template('feedbackviewer.html')
 
-
 def send_feedback(user):
     userid = request.form['userid']
     q1 = request.form['q1']
@@ -353,3 +349,68 @@ def send_feedback(user):
     g.professors = professors
 
     return render_template('feedback.html')
+
+#logout
+@app.route('/logout')
+def logout():
+    
+    #check if sessionid is in session
+    sessionId = request.cookies.get('sessionId')
+    if(sessionId in SESSIONS.keys()):
+    #remove it from sessions dictionary
+        SESSIONS.pop(sessionId, None)
+    
+    #return user to hompage
+    return login()
+
+#regrade request
+@app.route('/courses/<string:courseid>/regrade', methods=['GET','POST'])
+def regrade(courseid):
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    if request.method == 'POST':
+        print("Sending regrade request")
+        return send_regrade(user, userid)
+    else:
+        if privilege == 1:
+            print("showing regrade page student")
+            return show_regrade_page_student(user,courseid)
+        elif privilege == 3:
+            print("showing regrade page professor")           
+            return show_regrade_page_professor(user)
+        else:
+            return "Error you aren't a student or professor, try logging in"
+    
+def show_regrade_page_student(user,courseid):
+    g.courses = (courseid,)
+    
+    sql = "SELECT DISTINCT * FROM assignments where courseid = '"+courseid+"' ;"
+    assignmentnames = d.query_assoc(sql)
+    
+    g.assignmentnames = assignmentnames
+        
+    return render_template('regrade.html')
+
+def send_regrade(user, userid):
+
+    #get all variables in order
+    userid = user.userid
+    courseid = request.form['courseid']
+    assignment_name = request.form['assignment_name']
+    reason = request.form['reason']
+
+    #send them to the database
+    sql = "INSERT INTO 'main'.'regrades'('userid','courseid','assignment_name','reason') VALUES (?,?,?,?);"
+    d.query_t(sql,(userid, courseid, assignment_name, reason))
+    
+    g.submittedsuccess = True
+
+    return show_regrade_page_student(user, courseid)
+
+def show_regrade_page_professor(user):
+    return render_template('regradeview.html')
