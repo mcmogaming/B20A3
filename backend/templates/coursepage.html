@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav>
-            <img class="uoftlogo" src="/static/images/CMSlogo.png" alt="Logo">
+            <img class="uoftlogo" src="/static/images/CMSlogo1.png" alt="Logo">
             <h1>Home</h1>
             <h2>{{g.courseid}}</h2>
             <ul>
@@ -41,19 +41,22 @@
         </div>
     </div>
     <div class="homecontent">
-        <div class="coursedescription">
-            <h3>Course Description</h3>
-            <hr> {{g.description}}
-        </div>
-        <div class="instructors">
-            <h3>Instructors</h3>
-            <hr> {{g.instructors}}
-        </div>
-        <div class="TimeTable">
-            <h3>Timetable</h3>
-            <hr> {{g.timetable}}
-        </div>
-        <div class="eventswidget">
+        <section class="control1">
+            <div class="coursedescription">
+                <h3>Course Description</h3>
+                <hr> {{g.description}}
+            </div>
+            <div class="instructors">
+                <h3>Instructors</h3>
+                <hr> {{g.instructors}}
+            </div>
+            <div class="TimeTable">
+                <h3>Timetable</h3>
+                <hr> {{g.timetable}}
+            </div>
+        </section>
+        <section class="control2">
+            <div class="eventswidget">
             <h3>Upcoming Deadlines</h3>
             <hr>
             <br>
@@ -112,8 +115,9 @@
                 • Exam<br />
             </p>
         </div>
+        </section>
+        
 
-    </div>
     </div>
     <script src="/static/js/main.js"></script>
 </body>
