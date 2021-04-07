@@ -36,11 +36,11 @@
                     <p>Please enter the student's mark below (ie 0.75)</p>
                     <input id="mrk" type="number" min="0" max="1" step=".01" placeholder="Enter Mark" name="grade" required>
                 </div><br>
-                <div class="entermarks_button"><button type="submit">Submit Request</button></div>
+                <div class="entermarks_button"><button type="submit">Submit Mark</button></div>
             </form>
             {% if g.submittedsuccess%}
             <div class="green_box">
-                Regrade request submitted.
+                Mark submitted.
             </div>
             {% endif %}
         </div>
