@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="entermarks.css"> 
+<meta charset="utf-8">
+<title>CMS - Enter Marks</title>
+</head>
+<body>
+<div class="content_box">
+    <p class="entermarks_title">Enter Student Marks</p>
+    <div class="entermarks_form">
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <div class="student_menu">
+                <label for="students">Choose Student:</label>
+                <select class="students" style="width:200px; height: 30px;" name="types" id="cars">
+                    <option value="s1">Student ID: 1</option>
+                    <option value="s2">Student ID: 2</option>
+                    <option value="s3">Student ID: 3</option>
+                    <option value="s4">Student ID: 4</option>
+                    <option value="s5">Student ID: 5</option>
+                    <option value="s6">Student ID: 6</option>
+                </select>
+                <br>
+            </div>
+            <div class="assignment_menu">
+                <label for="assignments">Choose Assignment, Quiz or Exam:</label>
+                <select class="assignments" style="width:200px; height: 30px;" name="types" id="cars">
+                    <option value="a1">Assignment 1</option>
+                    <option value="a2">Assignment 2</option>
+                    <option value="a3">Assignment 3</option>
+                    <option value="a4">Quiz 1</option>
+                    <option value="a5">Quiz 2</option>
+                    <option value="a6">Quiz 3</option>
+                    <option value="a7">Quiz 4</option>
+                    <option value="a8">Midterm</option>
+                    <option value="a9">Final</option>
+                </select>
+                <br>
+            </div>
+            <div class="marks_box">
+                <p>Please enter the student's mark below</p>
+                <input id="mrk" type="number" min="0" max="100" placeholder="Enter Mark" name="mark" required>
+            </div><br>
+            <div class="entermarks_button"><button type="submit">Submit Request</button></div>
+        </form>
+    </div>
+</div>
+</body> 
+</html>
