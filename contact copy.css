@@ -1,6 +1,6 @@
 body {
     background-color: rgb(214, 243, 248);
-    font-family: muli, sans-serif;
+    font-family: muli,sans-serif;
 }
 
 .content_box {
@@ -15,7 +15,8 @@ body {
     box-shadow: 5px 10px black;
 }
 
-.contact_title {
+.contact_title
+{
     font-size: 30px;
     text-align: center;
     padding-top: 35px;
@@ -23,16 +24,18 @@ body {
     font-weight: 500;
 }
 
-.contact_bar {
+.contact_bar
+{
     width: 80%;
-    height: 100px;
+    height:100px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(111, 113, 134, 0.705);
 }
 
-.contact_bar div {
-    float: left;
+.contact_bar div
+{
+    float:left;
     margin: 0px;
     padding: 0px;
     width: 25%;
@@ -43,7 +46,8 @@ body {
     transition: all 0.2s;
 }
 
-.contact_bar div:hover {
+.contact_bar div:hover
+{
     opacity: 50%;
     background-color: black;
     color: #fff;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <title>CMS Calendar</title>
 </head>
+
 <body>
-   <header>
+    <header>
         <nav>
             <img class="uoftlogo" src="Pics\CMSlogo0.png" alt="Logo">
             <h1>Calendar</h1>
-          
-            <ul> 
+
+            <ul>
                 <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
                 <li><a data-page="instructors" href="#"><b>Instructors</b></a> </li>
-                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>   
-                <div class="bubble1"></div>  
-            </ul> 
+                <li><a data-page="office" href="#"><b>Timetables</b></a> </li>
+                <div class="bubble1"></div>
+            </ul>
+
         </nav>
-   </header>
-   <div id="sidebar">
-       <div class="toggle-btn" onclick="show()">
-           <span></span>
-           <span></span>
-           <span></span>
-       </div>
-       <div class="menu-items">
-           <div class="dashb">Dashboard</div>
+    </header>
+    <div id="sidebar">
+        <div class="toggle-btn" onclick="show()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-items">
+            <div class="dashb">Dashboard</div>
             <ul>
                 <li><a href="index.HTML">Home</a></li>
                 <li><a href="calendar.HTML">Calendar</a></li>
@@ -39,14 +42,14 @@
                 <li><a href="tests.HTML">Tests</a></li>
                 <li><a href="links.HTML">Links</a></li>
             </ul>
-       </div>
-   </div>
+        </div>
+    </div>
     <div class="calendar-content">
         <div class="box1-c">
-                <p >If you wish to subscribe to the calendar the address is: <a href="dummy/dummy.pdf">ical format</a></p>
+            <p>If you wish to subscribe to the calendar the address is: <a href="dummy/dummy.pdf">ical format</a></p>
             <p>
                 <iframe class="calendar" src="https://calendar.google.com/calendar/embed?src=f2oogqnfo1q728k3lcbtr4v478%40group.calendar.google.com&ctz=America%2FToronto"></iframe>
-            </p> 
+            </p>
         </div>
         <div class="officehour_box">
             <div class="bookimg"><img src="Pics/calendar.png" alt="book-image"></div>
@@ -58,9 +61,8 @@
                         <option value="Professor Pedram">Professor Pedram</option>
                         <option value="Dean Efkan">Dean Efkan</option>
                         <option value="TA Mohammad">TA Mohammadh</option>
-            
                     </select>
-                    
+
                     <label for="Date">Pick a date:</label>
                     <select id="date" type="text" required>
                         <option value="" disabled selected>...</option> 
@@ -88,8 +90,6 @@
         </div>
     </div>
 </body>
-<script src="main.js"></script>    
+<script src="main.js"></script>
+
 </html>
-
-
-  
