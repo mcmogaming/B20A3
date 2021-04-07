@@ -196,11 +196,11 @@ def show_course_page(courseid):
     if check_session():
         return redirect('/login')
 
-    if checkvalidcourseid(courseid):
-        return "Course ID is invalid"
-    
     print(courseid)
     coursepageinfo = d.query("SELECT * FROM coursehomepage WHERE courseid = '"+ courseid +"';")
+    
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"
     
     g.courseid = courseid
     g.description = coursepageinfo[0][1]
