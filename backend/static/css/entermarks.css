@@ -8,14 +8,14 @@ body {
     margin-left: auto;
     margin-top: 4%;
     margin-bottom: 10%;
-    height: 1100px;
+    height: 700px;
     width: 1500px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 5px 10px black;
 }
 
-.feedback_title {
+.entermarks_title {
     font-size: 30px;
     text-align: center;
     padding-top: 35px;
@@ -23,58 +23,27 @@ body {
     font-weight: 500;
 }
 
-.feedback_form ul {
-    list-style: none;
-    height: 100px;
-    padding: 0;
-}
-
-.feedback_form ul li {
-    float: left;
-    text-align: center;
-    width: 25%;
-}
-
-.feedback_form ul li label {
-    padding-top: 42px;
-    padding-bottom: 42px;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: aliceblue;
-    border-radius: 25px;
-    transition: all 0.2s;
-}
-
-.feedback_form input[type=radio]:checked~label {
-    background-color: rgb(114, 18, 114);
-    color: #fff;
-}
-
-.feedback_form ul li input {
-    visibility: hidden;
-}
-
-.feedback_form ul li {
-    padding-top: 40px;
-}
-
-.feedback_form {
+.entermarks_form {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
     text-align: center;
 }
 
-.feedback_form input {
+.entermarks_form input {
     margin-top: 4px;
     margin-bottom: 50px;
     transition: all 0.2s;
 }
 
-.drop_menu {
+.student_menu {
     padding-top: 25px;
 }
 
-.types {
+.assignment_menu {
+    margin-top: 80px;
+}
+
+select {
     text-align: center;
     border-radius: 10px;
     background-color: aliceblue;
@@ -82,38 +51,36 @@ body {
     transition: all 1.0s;
 }
 
-.types:focus {
+select:focus {
     outline: none;
-}
-
-.text_box {
-    padding-top: 25px;
-}
-
-.feedback_form textarea {
-    font-size: 24px;
-    border-radius: 20px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.feedback_form textarea:focus {
-    border: 2px solid rgb(0, 132, 255);
-    outline: 0px;
 }
 
 input:focus {
     outline: none;
 }
 
-.regrade_button {
+.marks_box {
+    margin-top: 80px;
+}
+
+#mrk {
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.entermarks_form p {
+    margin-bottom: 20px;
+}
+
+.entermarks_button {
     width: 20%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.regrade_button button {
+.entermarks_button button {
     font-size: 18px;
     width: 100%;
     height: 35px;
@@ -122,9 +89,9 @@ input:focus {
     background-color: aliceblue;
 }
 
-.regrade_button button:hover {
+.entermarks_button button:hover {
     height: 45px;
-    background-color: rgba(248, 165, 11, 0.979);
+    background-color: rgba(111, 13, 223, 0.979);
     color: #fff;
     font-size: 22px;
 }

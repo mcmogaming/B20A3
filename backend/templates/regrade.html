@@ -8,6 +8,15 @@
 </head>
 
 <body>
+    {% if g.submittedsuccess%}
+    <div class="green_box">
+        Regrade request submitted.
+    </div>
+    {% endif %} {% if g.submittederror%}
+    <div class="error_box">
+        An error occured in your submission form. Please fillout the boxes correctly.
+    </div>
+    {% endif %}
     <div class="content_box">
         <p class="feedback_title">Regrade Request Form</p>
         <div class="feedback_form">
@@ -24,7 +33,7 @@
                 </div>
                 <div class="drop_menu">
                     <label for="types">Choose Assignment, Quiz or Exam From all Courses:</label>
-                    <select class="types" style="width:200px; height: 30px;" name="types" id="cars">
+                    <select class="types" style="width:200px; height: 30px;" name="assignment_name" id="cars">
                         {% for as in g.assignmentnames %}
                             <option value="{{as['assignment_name']}}">{{as['assignment_name']}}</option>
                         {% endfor %}
@@ -37,15 +46,6 @@
                 </div><br>
                 <div class="regrade_button"><button type="submit">Submit Request</button></div>
             </form>
-            {% if submittedsuccess%}
-            <div class="error_box">
-                Regrade request submitted
-            </div>
-            {% endif %} {% if submittederror%}
-            <div class="error_box">
-                An error occured in your submission
-            </div>
-            {% endif %}
         </div>
     </div>
 </body>

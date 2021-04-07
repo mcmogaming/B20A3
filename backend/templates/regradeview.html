@@ -13,7 +13,7 @@
     <header>
         <nav>
             <img class="uoftlogo" src="/static/images/CMSlogo.png" alt="Logo">
-            <h1>Content</h1>
+            <h1>Regrades</h1>
 
             <ul>
                 <li><a data-page="course" href="#"><b>Course Description</b></a> </li>
@@ -47,12 +47,12 @@
     </div>
     <div class="mainwrap">
         <section class="lecturecontent">
-            {%for grade in g.regrades%}
+            {%for regrade in g.regrades%}
             <div class="week">
-                <h3 class="item1">{{grade['assignment_name']}}</h3>
-                <h4 class="item1">Mark:{{grade['grade']}}</h4>
-                <h4 class="item1">StudentID:{{grade['userid']}}</h4>
-                <a href="#" class="btn">Delete</a>
+                <h3 class="item1">{{regrade['assignment_name']}}</h3>
+                <h4 class="item1">reason:{{regrade['reason']}}</h4>
+                <h4 class="item1">StudentID:{{regrade['userid']}}</h4>
+                <a href="/delete/regrade/{{g.courseid}}/{{regrade['id']}}" class="btn">Delete</a>
             </div>
             {%endfor%}
         </section>

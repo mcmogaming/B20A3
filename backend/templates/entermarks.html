@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/css/entermarks.css">
+    <meta charset="utf-8">
+    <title>CMS - Enter Marks</title>
+</head>
+
+<body>
+    {% if g.invaliduserid%}
+    <div class="error_box">
+        Error, please type in an existing student userid.
+    </div>
+    {% endif %}
+    <div class="content_box">
+        <p class="entermarks_title">Enter Student Marks</p>
+        <div class="entermarks_form">
+            <form action="/courses/{{g.course}}/entermarks" method="post">
+                <div class="student_menu">
+                    <label for="userid">Enter Student ID:</label>
+                    <input type="number" min="0" step="1" name="userid">
+                    </select>
+                    <br>
+                </div>
+                <div class="assignment_menu">
+                    <label for="assignments">Choose Assignment, Quiz or Exam:</label>
+                    <select class="assignments" style="width:200px; height: 30px;" name="assignment_name" id="cars">
+                        {% for as in g.assignmentnames %}
+                        <option value="{{as['assignment_name']}}">{{as['assignment_name']}}</option>
+                        {% endfor %}
+                </select>
+                    <br>
+                </div>
+                <div class="marks_box">
+                    <p>Please enter the student's mark below (ie 0.75)</p>
+                    <input id="mrk" type="number" min="0" max="1" step=".01" placeholder="Enter Mark" name="grade" required>
+                </div><br>
+                <div class="entermarks_button"><button type="submit">Submit Request</button></div>
+            </form>
+            {% if g.submittedsuccess%}
+            <div class="green_box">
+                Regrade request submitted.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

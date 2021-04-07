@@ -382,13 +382,14 @@ def regrade(courseid):
             return show_regrade_page_student(user,courseid)
         elif privilege == 3:
             print("showing regrade page professor")           
-            return show_regrade_page_professor(user)
+            return show_regrade_page_professor(user,courseid)
         else:
             return "Error you aren't a student or professor, try logging in"
     
 def show_regrade_page_student(user,courseid):
     g.courses = (courseid,)
-    
+    g.course = courseid
+
     sql = "SELECT DISTINCT * FROM assignments where courseid = '"+courseid+"' ;"
     assignmentnames = d.query_assoc(sql)
     
@@ -404,13 +405,99 @@ def send_regrade(user, userid):
     assignment_name = request.form['assignment_name']
     reason = request.form['reason']
 
+    #check for errors
+    if len(reason) == 0:
+            g.submittederror = True
+            return show_regrade_page_student(user, courseid)
+
     #send them to the database
     sql = "INSERT INTO 'main'.'regrades'('userid','courseid','assignment_name','reason') VALUES (?,?,?,?);"
     d.query_t(sql,(userid, courseid, assignment_name, reason))
-    
+
     g.submittedsuccess = True
 
     return show_regrade_page_student(user, courseid)
 
-def show_regrade_page_professor(user):
+def show_regrade_page_professor(user,courseid):
+
+    sql = "SELECT * FROM regrades WHERE courseid='"+courseid+"';"
+    g.regrades = d.query_assoc(sql)
+    g.courseid = courseid
+    g.name = user.name
+
     return render_template('regradeview.html')
+
+#delete regrade requests
+@app.route('/delete/regrade/<string:courseid>/<int:id>')
+def delete(courseid,id):
+    sql = "DELETE FROM 'main'.'regrades' WHERE id = "+str(id)+";"
+    d.query_t(sql, ())
+    return regrade(courseid)
+
+
+#insertgrades
+@app.route('/courses/<string:courseid>/entermarks', methods=['GET','POST'])
+def entermarks(courseid):
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
+    privilege = user.privilege
+
+    if request.method == 'POST':
+        print("Sending addgrade request")
+        return addgrade(user, courseid)
+    else:
+        if privilege == 1:
+            return "I wish it was this easy"
+        elif privilege == 3:        
+            return show_entermarks_page_professor(user,courseid)
+        else:
+            return "Error you aren't a student or professor, try logging in"
+
+def show_entermarks_page_professor(user,courseid):
+
+    sql = "SELECT DISTINCT * FROM assignments where courseid = '"+courseid+"' ;"
+    assignmentnames = d.query_assoc(sql)
+
+    g.assignmentnames = assignmentnames
+
+    g.course = courseid
+    return render_template('entermarks.html')
+
+def addgrade(user, courseid):
+    
+    #get all variables in order
+    userid = request.form['userid']
+    assignment_name = request.form['assignment_name']
+    grade = request.form['grade']
+
+    #check for errors
+    if not checkuseridexists(int(userid)):
+        g.invaliduserid = True
+        return show_entermarks_page_professor(user,courseid)
+    #Delete entry if it already exists
+    
+    try:
+        sql = "DELETE FROM grades WHERE userid="+str(userid)+" AND courseid='"+courseid+"' AND assignment_name='"+assignment_name+"';"
+        d.query(sql)
+    except:
+        print("item didn't exist in database")
+
+    #Send them to the database
+    sql = "INSERT INTO 'main'.'grades'('userid','courseid','assignment_name','grade') VALUES (?,?,?,?);"
+    d.query_t(sql,(userid, courseid, assignment_name, grade))
+
+    g.submittedsuccess = True
+
+    return show_entermarks_page_professor(user,courseid)
+
+def checkuseridexists(userid):
+
+    userids = d.query_assoc("SELECT * FROM login_credentials;")
+    for u in userids:
+        if userid == u['userid'] and u['privilege'] == 1:
+            return True
+
+    return False
