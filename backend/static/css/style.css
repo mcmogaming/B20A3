@@ -143,14 +143,12 @@ nav a:hover {
     grid-template-columns: 1fr 1fr;
 }
 .control1{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    display:grid;
+    grid-template-rows: repeat(3, minmax(200px, 1fr));
 }
 .control2{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    display:grid;
+    grid-template-rows: repeat(2, minmax(200px, 1fr))
 }
 .homecontent div {
     padding: 20px;
@@ -159,32 +157,27 @@ nav a:hover {
 }
 
 .coursedescription {
-    flex:2;
     background-color: #121420;
     border: 2px #3b3939 solid;
     box-shadow: 5px 5px 5px black;
 }
 
 .instructors {
-    flex:2;
     background-color: #121420;
     border: 2px #3b3939 solid;
     box-shadow: 5px 5px 5px black;
 }
 
 .TimeTable {
-    flex:2;
     background-color: #121420;
     box-shadow: 5px 5px 5px black;
 }
 
 .eventswidget {
-    flex:2;
     background: #306bac;
     box-shadow: 5px 5px 5px black;
 }
 .feedback {
-    flex:2;
     background: #306bac;
     box-shadow: 5px 5px 5px black;
 }
@@ -683,29 +676,37 @@ select {
     margin-right: auto;
 }
 
-.profile {
+.profile{
     color: white;
     background: #306bac;
     text-align: center;
     box-shadow: 5px 5px black;
     padding: 1.5rem 2rem;
-    display: flex;
+    display:flex;
     flex-direction: column;
     min-height: 200px;
     max-width: 80%;
-}
-
-.course {
+    align-items: center;
+    justify-content:center;
+   }
+    
+   .course{
     background: rgb(214, 243, 248);
     text-align: center;
     box-shadow: 5px 5px black;
     padding: 1.5rem 2rem;
-    display: flex;
+    display:flex;
     flex-direction: column;
     min-height: 200px;
     width: 300px;
     cursor: pointer;
-}
+    align-items: center;
+    justify-content:center;
+   }
+   .course h2{
+    font-size:3rem;
+   }
+   
 
 .course:hover {
     background: rgb(156, 204, 213);
