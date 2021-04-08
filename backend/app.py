@@ -148,7 +148,14 @@ def show_homepage():
     if check_session():
         return redirect('/login')
     else:
-        user = SESSIONS.get(request.cookies.get('sessionId'))
+        userid = get_userid()
+        if userid == -1:
+            return "Invalid userid, try logging in"    
+
+        user = SESSIONS[request.cookies.get('sessionId')]
+        privilege = user.privilege
+    
+
         #setup profile
         g.username = user.username
         g.name = user.name
@@ -201,7 +208,14 @@ def show_course_page(courseid):
     
     if checkvalidcourseid(courseid):
         return "Course ID is invalid"
+
+    userid = get_userid()
+    if userid == -1:
+        return "Invalid userid, try logging in"    
+
+    user = SESSIONS[request.cookies.get('sessionId')]
     
+    g.name = user.name
     g.courseid = courseid
     g.description = coursepageinfo[0][1]
     g.instructors = coursepageinfo[0][2]
