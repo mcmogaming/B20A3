@@ -219,15 +219,17 @@ def show_course_lectures(courseid):
     if userid == -1:
         return "Invalid userid, try logging in"    
 
+    if checkvalidcourseid(courseid):
+        return "Course ID is invalid"    
+
     user = SESSIONS[request.cookies.get('sessionId')]
     privilege = user.privilege
 
-    lectures = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+ courseid +"' ORDER BY lec_order;")
-    
-    if checkvalidcourseid(courseid):
-        return "Course ID is invalid"
+    lectures = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+ courseid +"' AND is_tutorial = 0 ORDER BY lec_order;")
+    tutorials = d.query_assoc("SELECT * FROM lectures WHERE courseid = '"+ courseid +"' AND is_tutorial = 1 ORDER BY lec_order;") 
 
     g.lectures = lectures
+    g.tutorials = tutorials
     g.courseid = courseid
     g.name = user.name
 

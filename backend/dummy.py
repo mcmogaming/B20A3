@@ -36,7 +36,10 @@ for c in COURSES:
 
     #insert lectures
     for i in range(1,5):
-        d.query_t("INSERT INTO 'main'.'lectures'('courseid','lec_order','lec_title','html') VALUES (?,?,?,?);",(c, i, 'Week' + str(i), 'This is the html stuff for week' + str(i)) )
+        d.query_t("INSERT INTO 'main'.'lectures'('courseid','lec_order','lec_title','html') VALUES (?,?,?,?);",(c, i, 'Week' + str(i), '<h1>Lecture'+str(i)+'</h1>' + str(i)) )
+    
+    for i in range(5,10):
+        d.query_t("INSERT INTO 'main'.'lectures'('courseid','lec_order','lec_title','html','is_tutorial') VALUES (?,?,?,?,1);",(c, i, 'Tutorial' + str(i), '<h1>Tutorial'+str(i)+'</h1>' + str(i)) )
 
     #insert regrade requests
     for w in range(1,5):
