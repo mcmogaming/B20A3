@@ -142,6 +142,7 @@ nav a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 .control1{
     display:grid;
     grid-template-rows: repeat(3, minmax(200px, 1fr));
@@ -163,6 +164,8 @@ nav a:hover {
 }
 
 .instructors {
+    display: flex;
+    flex-direction:column;
     background-color: #121420;
     border: 2px #3b3939 solid;
     box-shadow: 5px 5px 5px black;
@@ -217,8 +220,25 @@ nav a:hover {
     color: rgb(243, 218, 149);
     text-decoration: underline;
 }
+.buttonzzz{
+    text-decoration: none !important;
+    margin:0 !important;
+}
 
-
+.btn1 {
+    
+    margin: 8px 8px;
+    background: #ffdd4a;
+    color: black !important;
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+.btn1:hover {
+    background-color: #edc71c;
+    font-size: 17px;
+}
 
 /*======calendar.html css=====*/
 
